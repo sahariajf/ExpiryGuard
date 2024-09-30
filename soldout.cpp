@@ -55,13 +55,20 @@ void soldout::on_soldOutBt_clicked()
 
     // Calculate profit
     double sellAmountValue = sellAmount.toDouble();
-    double profit = sellAmountValue - purAmount ;
+    double profit = sellAmountValue- purAmount;
 
-    // Display the fetched data in the UI
-    ui->medicineNameLabel->setText(medicineName); // Update this line based on your UI setup
-    ui->buyingPriceLabel->setText(QString::number(purAmount, 'f', 2)); // Show buying price
-    ui->sellingPriceLabel->setText(sellAmount); // Show selling price
-    ui->profitLabel->setText(QString::number(profit, 'f', 2)); // Show profit
+    // Show message in QListView
+    QString message = QString("You sold %1 which box number is %2 with profit amount %3")
+                          .arg(medicineName)
+                          .arg(boxNumber)
+                          .arg(profit);
+
+    // Create a model and set the message
+    QStringListModel *model = new QStringListModel();
+    QStringList list;
+    list << message;
+    model->setStringList(list);
+    ui->showdetails->setModel(model); // Assuming showdetails is your QListView
 
     // Prepare the SQL query for inserting data into the SoldOut table
     QSqlQuery insertQuery(database);
@@ -89,7 +96,6 @@ void soldout::on_soldOutBt_clicked()
     ui->sellDateIn->clear();
     ui->sellAmountIn->clear();
 }
-
 
 
 

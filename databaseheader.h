@@ -9,7 +9,8 @@
 #include <QFile>
 #include <QSqlQuery>
 #include <QMessageBox>
-
+#include <QStringListModel>
+#include <QListView>
 
 
 #endif // DATABASEHEADER_H

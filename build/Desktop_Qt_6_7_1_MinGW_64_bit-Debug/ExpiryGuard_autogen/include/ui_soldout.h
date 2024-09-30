@@ -16,6 +16,7 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListView>
 #include <QtWidgets/QPushButton>
 
 QT_BEGIN_NAMESPACE
@@ -31,6 +32,7 @@ public:
     QDateEdit *sellDateIn;
     QPushButton *soldOutBt;
     QPushButton *ResetBt;
+    QListView *showdetails;
 
     void setupUi(QDialog *soldout)
     {
@@ -94,6 +96,12 @@ public:
 "background-color:red;\n"
 "border-radius:30px;\n"
 "}"));
+        showdetails = new QListView(soldout);
+        showdetails->setObjectName("showdetails");
+        showdetails->setGeometry(QRect(20, 300, 411, 171));
+        QFont font3;
+        font3.setPointSize(12);
+        showdetails->setFont(font3);
 
         retranslateUi(soldout);
 

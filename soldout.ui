@@ -187,6 +187,21 @@ border-radius:30px;
     <string>Reset</string>
    </property>
   </widget>
+  <widget class="QListView" name="showdetails">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>300</y>
+     <width>411</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
