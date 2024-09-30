@@ -201,6 +201,18 @@ border-radius:30px;
      <pointsize>12</pointsize>
     </font>
    </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+   <property name="isWrapping" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="itemAlignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
  </widget>
  <resources/>

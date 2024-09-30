@@ -102,6 +102,10 @@ public:
         QFont font3;
         font3.setPointSize(12);
         showdetails->setFont(font3);
+        showdetails->setAutoFillBackground(true);
+        showdetails->setProperty("isWrapping", QVariant(true));
+        showdetails->setWordWrap(true);
+        showdetails->setItemAlignment(Qt::AlignCenter);
 
         retranslateUi(soldout);
 

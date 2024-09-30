@@ -56,19 +56,27 @@ void soldout::on_soldOutBt_clicked()
     // Calculate profit
     double sellAmountValue = sellAmount.toDouble();
     double profit = sellAmountValue- purAmount;
+    double loss = purAmount - sellAmountValue ;
+    QString message;
 
-    // Show message in QListView
-    QString message = QString("You sold %1 which box number is %2 with profit amount %3")
-                          .arg(medicineName)
-                          .arg(boxNumber)
-                          .arg(profit);
+    if (profit > 0) {
+        message = QString("You sold %1 which box number is %2 with profit amount %3")
+                      .arg(medicineName)
+                      .arg(boxNumber)
+                      .arg(profit);
+    } else {
+        message = QString("OH No ! You sold %1 which box number is %2 with loss of amount %3")
+                      .arg(medicineName)
+                      .arg(boxNumber)
+                      .arg(loss);
+    }
 
     // Create a model and set the message
     QStringListModel *model = new QStringListModel();
     QStringList list;
     list << message;
     model->setStringList(list);
-    ui->showdetails->setModel(model); // Assuming showdetails is your QListView
+    ui->showdetails->setModel(model);
 
     // Prepare the SQL query for inserting data into the SoldOut table
     QSqlQuery insertQuery(database);
