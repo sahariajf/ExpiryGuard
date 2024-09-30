@@ -190,14 +190,15 @@ border-radius:30px;
   <widget class="QListView" name="showdetails">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>60</x>
      <y>300</y>
-     <width>411</width>
+     <width>351</width>
      <height>171</height>
     </rect>
    </property>
    <property name="font">
     <font>
+     <family>Lucida Sans</family>
      <pointsize>12</pointsize>
     </font>
    </property>

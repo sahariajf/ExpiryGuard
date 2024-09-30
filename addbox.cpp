@@ -101,7 +101,7 @@ void addbox::on_SaveBt_clicked()
 
     // Close the database connection
     database.close();
-
+    QMessageBox::information(this, "Success", "Saved successfully");
     // Clear input fields
     ui->BoxNumberIn->clear();
     ui->nameIn->clear();
