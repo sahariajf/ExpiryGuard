@@ -35,24 +35,33 @@ void soldout::on_soldOutBt_clicked()
         qDebug() << "Database opened successfully.";
     }
 
-    // Fetch purAmount from addbox table
+    // Fetch details from addbox table
     QSqlQuery selectQuery(database);
-    selectQuery.prepare("SELECT purAmount FROM AddBox WHERE number = :boxNumber");
+    selectQuery.prepare("SELECT Name, purAmount FROM addbox WHERE number = :boxNumber");
     selectQuery.bindValue(":boxNumber", boxNumber);
 
+    QString medicineName;
     double purAmount = 0.0; // Initialize purAmount
+
     if (selectQuery.exec() && selectQuery.next()) {
-        purAmount = selectQuery.value(0).toDouble();
+        medicineName = selectQuery.value(0).toString();
+        purAmount = selectQuery.value(1).toDouble();
     } else {
         // Show a message box if the box number does not exist
-        QMessageBox::warning(this, "Box Number Not Found", "The entered box number does not exist in the Boxes database");
+        QMessageBox::warning(this, "Box Number Not Found", "The entered box number does not exist in the AddBox table.");
         database.close();
         return; // Exit if the box number is not found
     }
 
     // Calculate profit
     double sellAmountValue = sellAmount.toDouble();
-    double profit = sellAmountValue - purAmount;
+    double profit = sellAmountValue - purAmount ;
+
+    // Display the fetched data in the UI
+    ui->medicineNameLabel->setText(medicineName); // Update this line based on your UI setup
+    ui->buyingPriceLabel->setText(QString::number(purAmount, 'f', 2)); // Show buying price
+    ui->sellingPriceLabel->setText(sellAmount); // Show selling price
+    ui->profitLabel->setText(QString::number(profit, 'f', 2)); // Show profit
 
     // Prepare the SQL query for inserting data into the SoldOut table
     QSqlQuery insertQuery(database);
@@ -80,6 +89,7 @@ void soldout::on_soldOutBt_clicked()
     ui->sellDateIn->clear();
     ui->sellAmountIn->clear();
 }
+
 
 
 
