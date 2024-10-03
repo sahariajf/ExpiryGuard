@@ -13,6 +13,9 @@
 #include <QListView>
 #include <QDate>
 #include <QSystemTrayIcon>
+#include <QSqlRecord>
+#include <QHeaderView>
+#include <QVBoxLayout>
 
 
 

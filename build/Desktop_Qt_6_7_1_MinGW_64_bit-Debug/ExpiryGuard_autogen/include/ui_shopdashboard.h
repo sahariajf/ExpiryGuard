@@ -13,6 +13,10 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QTableView>
+#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -20,6 +24,9 @@ class Ui_ShopDashboard
 {
 public:
     QComboBox *selectMonth;
+    QLineEdit *monthDetails;
+    QWidget *centralWidget;
+    QTableView *tableView;
 
     void setupUi(QDialog *ShopDashboard)
     {
@@ -29,7 +36,16 @@ public:
         ShopDashboard->resize(793, 480);
         selectMonth = new QComboBox(ShopDashboard);
         selectMonth->setObjectName("selectMonth");
-        selectMonth->setGeometry(QRect(261, 50, 151, 28));
+        selectMonth->setGeometry(QRect(310, 20, 151, 28));
+        monthDetails = new QLineEdit(ShopDashboard);
+        monthDetails->setObjectName("monthDetails");
+        monthDetails->setGeometry(QRect(40, 60, 701, 41));
+        centralWidget = new QWidget(ShopDashboard);
+        centralWidget->setObjectName("centralWidget");
+        centralWidget->setGeometry(QRect(40, 130, 701, 331));
+        tableView = new QTableView(centralWidget);
+        tableView->setObjectName("tableView");
+        tableView->setGeometry(QRect(5, 0, 691, 331));
 
         retranslateUi(ShopDashboard);
 

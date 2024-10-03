@@ -19,12 +19,42 @@
   <widget class="QComboBox" name="selectMonth">
    <property name="geometry">
     <rect>
-     <x>261</x>
-     <y>50</y>
+     <x>310</x>
+     <y>20</y>
      <width>151</width>
      <height>28</height>
     </rect>
    </property>
+  </widget>
+  <widget class="QLineEdit" name="monthDetails">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>60</y>
+     <width>701</width>
+     <height>41</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="centralWidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>130</y>
+     <width>701</width>
+     <height>331</height>
+    </rect>
+   </property>
+   <widget class="QTableView" name="tableView">
+    <property name="geometry">
+     <rect>
+      <x>5</x>
+      <y>0</y>
+      <width>691</width>
+      <height>331</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

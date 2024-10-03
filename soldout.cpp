@@ -35,25 +35,25 @@ void soldout::on_soldOutBt_clicked()
         qDebug() << "Database opened successfully.";
     }
 
-    // Fetch details from addbox table
+
     QSqlQuery selectQuery(database);
     selectQuery.prepare("SELECT Name, purAmount FROM addbox WHERE number = :boxNumber");
     selectQuery.bindValue(":boxNumber", boxNumber);
 
     QString medicineName;
-    double purAmount = 0.0; // Initialize purAmount
+    double purAmount = 0.0;
 
     if (selectQuery.exec() && selectQuery.next()) {
         medicineName = selectQuery.value(0).toString();
         purAmount = selectQuery.value(1).toDouble();
     } else {
-        // Show a message box if the box number does not exist
+
         QMessageBox::warning(this, "Box Number Not Found", "The entered box number does not exist in the AddBox table.");
         database.close();
-        return; // Exit if the box number is not found
+        return;
     }
 
-    // Calculate profit
+
     double sellAmountValue = sellAmount.toDouble();
     double profit = sellAmountValue- purAmount;
     double loss = purAmount - sellAmountValue ;
@@ -71,35 +71,35 @@ void soldout::on_soldOutBt_clicked()
                       .arg(loss);
     }
 
-    // Create a model and set the message
+
     QStringListModel *model = new QStringListModel();
     QStringList list;
     list << message;
     model->setStringList(list);
     ui->showdetails->setModel(model);
 
-    // Prepare the SQL query for inserting data into the SoldOut table
+
     QSqlQuery insertQuery(database);
     insertQuery.prepare("INSERT INTO SoldOut (number, SellDate, SellAmount, profit) "
                         "VALUES (:boxNumber, :sellDate, :sellAmount, :profit)");
 
-    // Bind values to placeholders
+
     insertQuery.bindValue(":boxNumber", boxNumber);
     insertQuery.bindValue(":sellDate", sellDate);
     insertQuery.bindValue(":sellAmount", sellAmount);
-    insertQuery.bindValue(":profit", profit); // Bind profit value
+    insertQuery.bindValue(":profit", profit);
 
-    // Execute the query and check for errors
+
     if (!insertQuery.exec()) {
         qDebug() << "Error: Unable to execute query -" << insertQuery.lastError().text();
     } else {
         qDebug() << "Data saved successfully with profit calculated.";
     }
 
-    // Close the database connection
+
     database.close();
 
-    // Clear input fields
+
     ui->boxNumberIn->clear();
     ui->sellDateIn->clear();
     ui->sellAmountIn->clear();

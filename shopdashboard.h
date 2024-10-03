@@ -16,6 +16,10 @@ public:
     explicit ShopDashboard(QWidget *parent = nullptr);
     ~ShopDashboard();
     void ComboBoxWithFormattedDates();
+    void setupTableView();
+
+private slots:
+    void on_selectMonth_currentIndexChanged(int index);
 
 private:
     Ui::ShopDashboard *ui;
