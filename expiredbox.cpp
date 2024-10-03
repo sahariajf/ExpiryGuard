@@ -69,5 +69,7 @@ void expiredBox::on_pushButton_clicked()
 
 
     database.close();
+
+    ui->ExpiredBoxIn->clear();
 }
 
