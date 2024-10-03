@@ -31,6 +31,8 @@ public:
     QLineEdit *searchtext;
     QListView *searchResult;
     QTextEdit *ExpirationAlert;
+    QPushButton *refreshBt;
+    QPushButton *DetailsBt;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -81,6 +83,12 @@ public:
         ExpirationAlert->setObjectName("ExpirationAlert");
         ExpirationAlert->setEnabled(true);
         ExpirationAlert->setGeometry(QRect(580, 470, 211, 61));
+        refreshBt = new QPushButton(centralwidget);
+        refreshBt->setObjectName("refreshBt");
+        refreshBt->setGeometry(QRect(690, 540, 93, 29));
+        DetailsBt = new QPushButton(centralwidget);
+        DetailsBt->setObjectName("DetailsBt");
+        DetailsBt->setGeometry(QRect(590, 540, 93, 29));
         MainWindow->setCentralWidget(centralwidget);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName("statusBar");
@@ -98,6 +106,8 @@ public:
         SoldOutBt->setText(QCoreApplication::translate("MainWindow", "Sold Out", nullptr));
         searchBT->setText(QCoreApplication::translate("MainWindow", "Search", nullptr));
         searchtext->setText(QCoreApplication::translate("MainWindow", "Input medicine name", nullptr));
+        refreshBt->setText(QCoreApplication::translate("MainWindow", "Refresh", nullptr));
+        DetailsBt->setText(QCoreApplication::translate("MainWindow", "Details", nullptr));
     } // retranslateUi
 
 };

@@ -24,6 +24,9 @@ set(PROJECT_SOURCES
         soldout.h
         soldout.cpp
         soldout.ui
+        detailaleart.h
+        detailaleart.cpp
+        detailaleart.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -33,6 +36,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         addbox.h addbox.cpp addbox.ui
         databaseheader.h
         soldout.h soldout.cpp soldout.ui
+        detailaleart.h detailaleart.cpp detailaleart.ui
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET ExpiryGuard APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

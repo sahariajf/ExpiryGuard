@@ -149,7 +149,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="refreshBt">
     <property name="geometry">
      <rect>
       <x>690</x>
@@ -162,7 +162,7 @@
      <string>Refresh</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="DetailsBt">
     <property name="geometry">
      <rect>
       <x>590</x>

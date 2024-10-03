@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "addbox.h"
 #include "soldout.h"
+#include "detailaleart.h"
 
 class AddBox;
 
@@ -32,11 +33,15 @@ private slots:
     void checkExpiryDates();
 
 
-    void on_pushButton_clicked();
+
+    void on_refreshBt_clicked();
+
+    void on_DetailsBt_clicked();
 
 private:
     Ui::MainWindow *ui;
     addbox *ptrAddbox;
     soldout *ptrsoldout;
+    detailAleart *ptrdetailAleart;
 };
 #endif // MAINWINDOW_H
