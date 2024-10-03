@@ -98,8 +98,9 @@ public:
 "}"));
         showdetails = new QListView(soldout);
         showdetails->setObjectName("showdetails");
-        showdetails->setGeometry(QRect(20, 300, 411, 171));
+        showdetails->setGeometry(QRect(60, 300, 351, 171));
         QFont font3;
+        font3.setFamilies({QString::fromUtf8("Lucida Sans")});
         font3.setPointSize(12);
         showdetails->setFont(font3);
         showdetails->setAutoFillBackground(true);

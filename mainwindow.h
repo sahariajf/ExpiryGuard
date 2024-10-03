@@ -25,6 +25,10 @@ private slots:
 
     void on_SoldOutBt_clicked();
 
+    void on_searchBT_clicked();
+
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     addbox *ptrAddbox;

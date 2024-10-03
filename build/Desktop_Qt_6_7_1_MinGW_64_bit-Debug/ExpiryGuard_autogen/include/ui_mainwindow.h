@@ -11,6 +11,8 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
@@ -24,6 +26,9 @@ public:
     QWidget *centralwidget;
     QPushButton *ADDBoxBt;
     QPushButton *SoldOutBt;
+    QPushButton *searchBT;
+    QLineEdit *searchtext;
+    QListView *searchResult;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -40,6 +45,27 @@ public:
         SoldOutBt = new QPushButton(centralwidget);
         SoldOutBt->setObjectName("SoldOutBt");
         SoldOutBt->setGeometry(QRect(20, 90, 111, 41));
+        searchBT = new QPushButton(centralwidget);
+        searchBT->setObjectName("searchBT");
+        searchBT->setGeometry(QRect(652, 40, 101, 31));
+        QFont font;
+        font.setPointSize(11);
+        font.setBold(true);
+        searchBT->setFont(font);
+        searchBT->setCheckable(false);
+        searchtext = new QLineEdit(centralwidget);
+        searchtext->setObjectName("searchtext");
+        searchtext->setGeometry(QRect(440, 40, 191, 31));
+        searchtext->setEchoMode(QLineEdit::Normal);
+        searchtext->setReadOnly(false);
+        searchtext->setClearButtonEnabled(true);
+        searchResult = new QListView(centralwidget);
+        searchResult->setObjectName("searchResult");
+        searchResult->setGeometry(QRect(440, 90, 191, 121));
+        searchResult->setAutoFillBackground(false);
+        searchResult->setProperty("isWrapping", QVariant(true));
+        searchResult->setWordWrap(true);
+        searchResult->setItemAlignment(Qt::AlignCenter);
         MainWindow->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -55,6 +81,8 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "ExpiryGuard", nullptr));
         ADDBoxBt->setText(QCoreApplication::translate("MainWindow", "ADD Box", nullptr));
         SoldOutBt->setText(QCoreApplication::translate("MainWindow", "Sold Out", nullptr));
+        searchBT->setText(QCoreApplication::translate("MainWindow", "Search", nullptr));
+        searchtext->setText(QCoreApplication::translate("MainWindow", "Input medicine name", nullptr));
     } // retranslateUi
 
 };
