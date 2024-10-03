@@ -88,6 +88,9 @@
     </property>
    </widget>
    <widget class="QListView" name="searchResult">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>440</x>
@@ -126,12 +129,28 @@
     <property name="wordWrap">
      <bool>true</bool>
     </property>
+    <property name="selectionRectVisible">
+     <bool>false</bool>
+    </property>
     <property name="itemAlignment">
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
+   <widget class="QTextEdit" name="ExpirationAlert">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>573</x>
+      <y>506</y>
+      <width>211</width>
+      <height>61</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <resources/>
  <connections/>

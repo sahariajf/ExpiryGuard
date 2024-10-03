@@ -16,6 +16,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -29,7 +30,8 @@ public:
     QPushButton *searchBT;
     QLineEdit *searchtext;
     QListView *searchResult;
-    QStatusBar *statusbar;
+    QTextEdit *ExpirationAlert;
+    QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -61,6 +63,7 @@ public:
         searchtext->setClearButtonEnabled(true);
         searchResult = new QListView(centralwidget);
         searchResult->setObjectName("searchResult");
+        searchResult->setEnabled(true);
         searchResult->setGeometry(QRect(440, 90, 311, 121));
         searchResult->setMouseTracking(true);
         searchResult->setFocusPolicy(Qt::NoFocus);
@@ -72,11 +75,16 @@ public:
         searchResult->setProperty("isWrapping", QVariant(false));
         searchResult->setSpacing(2);
         searchResult->setWordWrap(true);
+        searchResult->setSelectionRectVisible(false);
         searchResult->setItemAlignment(Qt::AlignCenter);
+        ExpirationAlert = new QTextEdit(centralwidget);
+        ExpirationAlert->setObjectName("ExpirationAlert");
+        ExpirationAlert->setEnabled(true);
+        ExpirationAlert->setGeometry(QRect(573, 506, 211, 61));
         MainWindow->setCentralWidget(centralwidget);
-        statusbar = new QStatusBar(MainWindow);
-        statusbar->setObjectName("statusbar");
-        MainWindow->setStatusBar(statusbar);
+        statusBar = new QStatusBar(MainWindow);
+        statusBar->setObjectName("statusBar");
+        MainWindow->setStatusBar(statusBar);
 
         retranslateUi(MainWindow);
 

@@ -5,6 +5,7 @@
 #include "addbox.h"
 #include "soldout.h"
 
+class AddBox;
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -20,6 +21,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
 private slots:
     void on_ADDBoxBt_clicked();
 
@@ -27,7 +29,8 @@ private slots:
 
     void on_searchBT_clicked();
 
-    void on_pushButton_clicked();
+    void checkExpiryDates();
+
 
 private:
     Ui::MainWindow *ui;

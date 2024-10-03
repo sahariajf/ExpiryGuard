@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -8,6 +9,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ptrAddbox= new addbox();
     ptrsoldout = new soldout();
+
+    ui->searchResult->setVisible(false);
+    ui->ExpirationAlert->setVisible(false);
+
+    checkExpiryDates();
+
 
 }
 
@@ -26,12 +33,16 @@ void MainWindow::on_ADDBoxBt_clicked()
 
 void MainWindow::on_SoldOutBt_clicked()
 {
-    ptrsoldout->show();
+
+
+    ptrAddbox->show(); // Show AddBox as a modal dialog
 }
 
 
 void MainWindow::on_searchBT_clicked()
 {
+    ui->searchResult->setVisible(true);
+
     QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE");
     database.setDatabaseName("E:/1Y2S/project/ExpiryGuard/database/ExpiryGurard.db");
 
@@ -92,6 +103,52 @@ void MainWindow::on_searchBT_clicked()
     ui->searchtext->clear();
 }
 
+
+void MainWindow::checkExpiryDates()
+{
+
+    QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE");
+    database.setDatabaseName("E:/1Y2S/project/ExpiryGuard/database/ExpiryGurard.db");
+
+    if (!database.open()) {
+        qDebug() << "Error: Unable to open database.";
+        return;
+    }
+
+    // Get today's date and the date 7 days from now
+    QDate today = QDate::currentDate();
+    QDate nextWeek = today.addDays(7);
+
+
+    QString todayStr = today.toString("yyyy-MM-dd");
+    QString nextWeekStr = nextWeek.toString("yyyy-MM-dd");
+
+
+    QSqlQuery query;
+    query.prepare("SELECT COUNT(*) FROM addbox WHERE ExpiryDate BETWEEN :today AND :nextWeek");
+    query.bindValue(":today", todayStr);
+    query.bindValue(":nextWeek", nextWeekStr);
+
+    if (query.exec()) {
+        if (query.next()) {
+            int count = query.value(0).toInt(); // Get the count result
+
+            if(count>0)
+
+            {   ui->ExpirationAlert->setVisible(true);
+                QString message = QString("%1 medicine(s) are going to expire in the next 7 days").arg(count);
+                ui->ExpirationAlert->setText(message);
+            }
+
+        }
+    }
+    else
+    {
+        qDebug() << "Error executing query: " << query.lastError();
+    }
+
+    database.close();
+}
 
 
 

@@ -11,6 +11,8 @@
 #include <QMessageBox>
 #include <QStringListModel>
 #include <QListView>
+#include <QDate>
+
 
 
 #endif // DATABASEHEADER_H

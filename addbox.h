@@ -4,6 +4,8 @@
 #include <QDialog>
 #include "databaseheader.h"
 
+
+
 namespace Ui {
 class addbox;
 }
@@ -20,6 +22,7 @@ private slots:
     void on_SaveBt_clicked();
 
     void on_ResetBt_clicked();
+
 
 private:
     Ui::addbox *ui;

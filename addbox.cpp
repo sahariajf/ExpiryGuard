@@ -1,6 +1,7 @@
 #include "addbox.h"
 #include "ui_addbox.h"
 
+
 addbox::addbox(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::addbox)
@@ -95,13 +96,16 @@ void addbox::on_SaveBt_clicked()
     // Execute the query and check for errors
     if (!insertQuery.exec()) {
         qDebug() << "Error: Unable to execute query -" << insertQuery.lastError().text();
+        QMessageBox::warning(this, "error", "try again");
     } else {
         qDebug() << "Data saved successfully.";
+        QMessageBox::information(this, "Success", "Saved successfully");
     }
 
     // Close the database connection
     database.close();
-    QMessageBox::information(this, "Success", "Saved successfully");
+
+
     // Clear input fields
     ui->BoxNumberIn->clear();
     ui->nameIn->clear();
