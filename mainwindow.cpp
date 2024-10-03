@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
     ptrsoldout = new soldout();
     ptrdetailAleart = new detailAleart();
     ptrExpiredBox = new expiredBox();
+    ptrExpirydashboard = new ExpiryDashboard();
 
     ui->searchResult->setVisible(false);
     ui->ExpirationAlert->setVisible(false);
@@ -26,6 +27,7 @@ MainWindow::~MainWindow()
     delete ptrAddbox;
     delete ptrdetailAleart;
     delete ptrExpiredBox;
+    delete ptrExpirydashboard;
     delete ui;
 }
 
@@ -38,8 +40,7 @@ void MainWindow::on_ADDBoxBt_clicked()
 void MainWindow::on_SoldOutBt_clicked()
 {
 
-
-    ptrAddbox->show(); // Show AddBox as a modal dialog
+    ptrsoldout->show();
 }
 
 
@@ -107,6 +108,21 @@ void MainWindow::on_searchBT_clicked()
     ui->searchtext->clear();
 }
 
+void MainWindow::showNotification(const QString& massage)
+{
+
+    if (!QSystemTrayIcon::isSystemTrayAvailable()) {
+        QMessageBox::warning(this, "Error", "System tray is not available on this system.");
+        return;
+    }
+
+    QSystemTrayIcon* trayIcon = new QSystemTrayIcon(this);
+    trayIcon->setIcon(QApplication::style()->standardIcon(QStyle::SP_ComputerIcon));
+    trayIcon->show();
+    trayIcon->showMessage("Expiration Alert", massage, QSystemTrayIcon::Information, 5000); // 5000 ms (5 seconds)
+    trayIcon->hide();
+    delete trayIcon;
+}
 
 void MainWindow::checkExpiryDates()
 {
@@ -167,13 +183,22 @@ void MainWindow::checkExpiryDates()
         QString massage3 = QString("Aleart!! %1 medicine(s) have already expired.")
                                .arg(expiredCount);
         if(expiredCount > 0 && expiringCount > 0)
+        {
             ui->ExpirationAlert->setText(message1);
+            showNotification(message1);
+        }
 
         else if(expiredCount > 0)
+        {
             ui->ExpirationAlert->setText(massage3);
+            showNotification(massage3);
+        }
 
         else if(expiringCount > 0)
+        {
             ui->ExpirationAlert->setText(massage2);
+            showNotification(massage2);
+        }
     }
 
     database.close();
@@ -195,5 +220,11 @@ void MainWindow::on_DetailsBt_clicked()
 void MainWindow::on_ExpiredBoxBt_clicked()
 {
     ptrExpiredBox->show();
+}
+
+
+void MainWindow::on_ExpiryDashBoardBT_clicked()
+{
+    ptrExpirydashboard->show();
 }
 

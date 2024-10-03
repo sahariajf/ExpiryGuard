@@ -33,7 +33,7 @@ public:
     QTextEdit *ExpirationAlert;
     QPushButton *refreshBt;
     QPushButton *DetailsBt;
-    QPushButton *SoldOutBt_2;
+    QPushButton *ExpiryDashBoardBT;
     QPushButton *ExpiredBoxBt;
     QStatusBar *statusBar;
 
@@ -47,10 +47,10 @@ public:
         centralwidget->setObjectName("centralwidget");
         ADDBoxBt = new QPushButton(centralwidget);
         ADDBoxBt->setObjectName("ADDBoxBt");
-        ADDBoxBt->setGeometry(QRect(20, 30, 111, 41));
+        ADDBoxBt->setGeometry(QRect(20, 30, 141, 41));
         SoldOutBt = new QPushButton(centralwidget);
         SoldOutBt->setObjectName("SoldOutBt");
-        SoldOutBt->setGeometry(QRect(20, 90, 111, 41));
+        SoldOutBt->setGeometry(QRect(20, 90, 141, 41));
         searchBT = new QPushButton(centralwidget);
         searchBT->setObjectName("searchBT");
         searchBT->setGeometry(QRect(652, 40, 101, 31));
@@ -84,19 +84,19 @@ public:
         ExpirationAlert = new QTextEdit(centralwidget);
         ExpirationAlert->setObjectName("ExpirationAlert");
         ExpirationAlert->setEnabled(true);
-        ExpirationAlert->setGeometry(QRect(580, 470, 211, 61));
+        ExpirationAlert->setGeometry(QRect(570, 470, 221, 61));
         refreshBt = new QPushButton(centralwidget);
         refreshBt->setObjectName("refreshBt");
         refreshBt->setGeometry(QRect(690, 540, 93, 29));
         DetailsBt = new QPushButton(centralwidget);
         DetailsBt->setObjectName("DetailsBt");
         DetailsBt->setGeometry(QRect(590, 540, 93, 29));
-        SoldOutBt_2 = new QPushButton(centralwidget);
-        SoldOutBt_2->setObjectName("SoldOutBt_2");
-        SoldOutBt_2->setGeometry(QRect(20, 150, 111, 41));
+        ExpiryDashBoardBT = new QPushButton(centralwidget);
+        ExpiryDashBoardBT->setObjectName("ExpiryDashBoardBT");
+        ExpiryDashBoardBT->setGeometry(QRect(20, 150, 141, 41));
         ExpiredBoxBt = new QPushButton(centralwidget);
         ExpiredBoxBt->setObjectName("ExpiredBoxBt");
-        ExpiredBoxBt->setGeometry(QRect(20, 210, 111, 41));
+        ExpiredBoxBt->setGeometry(QRect(20, 210, 141, 41));
         MainWindow->setCentralWidget(centralwidget);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName("statusBar");
@@ -116,7 +116,7 @@ public:
         searchtext->setText(QCoreApplication::translate("MainWindow", "Input medicine name", nullptr));
         refreshBt->setText(QCoreApplication::translate("MainWindow", "Refresh", nullptr));
         DetailsBt->setText(QCoreApplication::translate("MainWindow", "Details", nullptr));
-        SoldOutBt_2->setText(QCoreApplication::translate("MainWindow", "Sold Out", nullptr));
+        ExpiryDashBoardBT->setText(QCoreApplication::translate("MainWindow", "Expiry DashBoard", nullptr));
         ExpiredBoxBt->setText(QCoreApplication::translate("MainWindow", "Expired Box", nullptr));
     } // retranslateUi
 

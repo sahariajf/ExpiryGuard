@@ -12,6 +12,7 @@
 #include <QStringListModel>
 #include <QListView>
 #include <QDate>
+#include <QSystemTrayIcon>
 
 
 

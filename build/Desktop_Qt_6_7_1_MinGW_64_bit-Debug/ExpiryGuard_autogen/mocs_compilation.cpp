@@ -2,5 +2,6 @@
 #include "EWIEGA46WW/moc_addbox.cpp"
 #include "EWIEGA46WW/moc_detailaleart.cpp"
 #include "EWIEGA46WW/moc_expiredbox.cpp"
+#include "EWIEGA46WW/moc_expirydashboard.cpp"
 #include "EWIEGA46WW/moc_mainwindow.cpp"
 #include "EWIEGA46WW/moc_soldout.cpp"

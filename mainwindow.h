@@ -6,6 +6,7 @@
 #include "soldout.h"
 #include "detailaleart.h"
 #include "expiredbox.h"
+#include "expirydashboard.h"
 
 class AddBox;
 
@@ -33,7 +34,7 @@ private slots:
 
     void checkExpiryDates();
 
-
+    void showNotification(const QString &message);
 
     void on_refreshBt_clicked();
 
@@ -41,11 +42,14 @@ private slots:
 
     void on_ExpiredBoxBt_clicked();
 
+    void on_ExpiryDashBoardBT_clicked();
+
 private:
     Ui::MainWindow *ui;
     addbox *ptrAddbox;
     soldout *ptrsoldout;
     detailAleart *ptrdetailAleart;
     expiredBox *ptrExpiredBox;
+    ExpiryDashboard *ptrExpirydashboard;
 };
 #endif // MAINWINDOW_H

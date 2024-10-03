@@ -22,7 +22,7 @@
      <rect>
       <x>20</x>
       <y>30</y>
-      <width>111</width>
+      <width>141</width>
       <height>41</height>
      </rect>
     </property>
@@ -35,7 +35,7 @@
      <rect>
       <x>20</x>
       <y>90</y>
-      <width>111</width>
+      <width>141</width>
       <height>41</height>
      </rect>
     </property>
@@ -142,9 +142,9 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>580</x>
+      <x>570</x>
       <y>470</y>
-      <width>211</width>
+      <width>221</width>
       <height>61</height>
      </rect>
     </property>
@@ -175,17 +175,17 @@
      <string>Details</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="SoldOutBt_2">
+   <widget class="QPushButton" name="ExpiryDashBoardBT">
     <property name="geometry">
      <rect>
       <x>20</x>
       <y>150</y>
-      <width>111</width>
+      <width>141</width>
       <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>Sold Out</string>
+     <string>Expiry DashBoard</string>
     </property>
    </widget>
    <widget class="QPushButton" name="ExpiredBoxBt">
@@ -193,7 +193,7 @@
      <rect>
       <x>20</x>
       <y>210</y>
-      <width>111</width>
+      <width>141</width>
       <height>41</height>
      </rect>
     </property>
