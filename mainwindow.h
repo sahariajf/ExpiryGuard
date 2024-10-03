@@ -5,6 +5,7 @@
 #include "addbox.h"
 #include "soldout.h"
 #include "detailaleart.h"
+#include "expiredbox.h"
 
 class AddBox;
 
@@ -38,10 +39,13 @@ private slots:
 
     void on_DetailsBt_clicked();
 
+    void on_ExpiredBoxBt_clicked();
+
 private:
     Ui::MainWindow *ui;
     addbox *ptrAddbox;
     soldout *ptrsoldout;
     detailAleart *ptrdetailAleart;
+    expiredBox *ptrExpiredBox;
 };
 #endif // MAINWINDOW_H

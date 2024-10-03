@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     ptrAddbox= new addbox();
     ptrsoldout = new soldout();
     ptrdetailAleart = new detailAleart();
+    ptrExpiredBox = new expiredBox();
 
     ui->searchResult->setVisible(false);
     ui->ExpirationAlert->setVisible(false);
@@ -24,6 +25,7 @@ MainWindow::~MainWindow()
     delete ptrsoldout;
     delete ptrAddbox;
     delete ptrdetailAleart;
+    delete ptrExpiredBox;
     delete ui;
 }
 
@@ -187,5 +189,11 @@ void MainWindow::on_refreshBt_clicked()
 void MainWindow::on_DetailsBt_clicked()
 {
     ptrdetailAleart->show();
+}
+
+
+void MainWindow::on_ExpiredBoxBt_clicked()
+{
+    ptrExpiredBox->show();
 }
 

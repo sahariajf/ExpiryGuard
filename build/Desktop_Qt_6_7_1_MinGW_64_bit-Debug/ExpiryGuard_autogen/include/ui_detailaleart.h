@@ -66,7 +66,7 @@ public:
 
     void retranslateUi(QDialog *detailAleart)
     {
-        detailAleart->setWindowTitle(QCoreApplication::translate("detailAleart", "Dialog", nullptr));
+        detailAleart->setWindowTitle(QCoreApplication::translate("detailAleart", "Detail Aleart", nullptr));
         label->setText(QCoreApplication::translate("detailAleart", "Already Expired", nullptr));
         label_2->setText(QCoreApplication::translate("detailAleart", "Going to Expire", nullptr));
     } // retranslateUi

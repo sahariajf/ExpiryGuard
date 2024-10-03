@@ -14,7 +14,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Detail Aleart</string>
   </property>
   <widget class="QListView" name="ExpiredView">
    <property name="geometry">

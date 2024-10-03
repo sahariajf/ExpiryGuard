@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "databaseheader.h"
 
+
 namespace Ui {
 class detailAleart;
 }

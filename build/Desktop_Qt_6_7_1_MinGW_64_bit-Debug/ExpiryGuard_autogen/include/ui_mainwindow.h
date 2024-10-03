@@ -33,6 +33,8 @@ public:
     QTextEdit *ExpirationAlert;
     QPushButton *refreshBt;
     QPushButton *DetailsBt;
+    QPushButton *SoldOutBt_2;
+    QPushButton *ExpiredBoxBt;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -89,6 +91,12 @@ public:
         DetailsBt = new QPushButton(centralwidget);
         DetailsBt->setObjectName("DetailsBt");
         DetailsBt->setGeometry(QRect(590, 540, 93, 29));
+        SoldOutBt_2 = new QPushButton(centralwidget);
+        SoldOutBt_2->setObjectName("SoldOutBt_2");
+        SoldOutBt_2->setGeometry(QRect(20, 150, 111, 41));
+        ExpiredBoxBt = new QPushButton(centralwidget);
+        ExpiredBoxBt->setObjectName("ExpiredBoxBt");
+        ExpiredBoxBt->setGeometry(QRect(20, 210, 111, 41));
         MainWindow->setCentralWidget(centralwidget);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName("statusBar");
@@ -108,6 +116,8 @@ public:
         searchtext->setText(QCoreApplication::translate("MainWindow", "Input medicine name", nullptr));
         refreshBt->setText(QCoreApplication::translate("MainWindow", "Refresh", nullptr));
         DetailsBt->setText(QCoreApplication::translate("MainWindow", "Details", nullptr));
+        SoldOutBt_2->setText(QCoreApplication::translate("MainWindow", "Sold Out", nullptr));
+        ExpiredBoxBt->setText(QCoreApplication::translate("MainWindow", "Expired Box", nullptr));
     } // retranslateUi
 
 };
