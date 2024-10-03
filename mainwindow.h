@@ -32,6 +32,8 @@ private slots:
     void checkExpiryDates();
 
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     addbox *ptrAddbox;

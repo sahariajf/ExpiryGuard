@@ -142,11 +142,37 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>573</x>
-      <y>506</y>
+      <x>580</x>
+      <y>470</y>
       <width>211</width>
       <height>61</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>540</y>
+      <width>93</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Refresh</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>540</y>
+      <width>93</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Details</string>
     </property>
    </widget>
   </widget>

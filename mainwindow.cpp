@@ -106,7 +106,6 @@ void MainWindow::on_searchBT_clicked()
 
 void MainWindow::checkExpiryDates()
 {
-
     QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE");
     database.setDatabaseName("E:/1Y2S/project/ExpiryGuard/database/ExpiryGurard.db");
 
@@ -115,41 +114,70 @@ void MainWindow::checkExpiryDates()
         return;
     }
 
-    // Get today's date and the date 7 days from now
+
     QDate today = QDate::currentDate();
-    QDate nextWeek = today.addDays(7);
 
-
+    // Query for medicines expiring in the next 7 days
     QString todayStr = today.toString("yyyy-MM-dd");
-    QString nextWeekStr = nextWeek.toString("yyyy-MM-dd");
+    QString nextWeekStr = today.addDays(7).toString("yyyy-MM-dd");
 
+    QSqlQuery expiryQuery;
+    expiryQuery.prepare("SELECT COUNT(*) FROM addbox WHERE ExpiryDate BETWEEN :today AND :nextWeek");
+    expiryQuery.bindValue(":today", todayStr);
+    expiryQuery.bindValue(":nextWeek", nextWeekStr);
 
-    QSqlQuery query;
-    query.prepare("SELECT COUNT(*) FROM addbox WHERE ExpiryDate BETWEEN :today AND :nextWeek");
-    query.bindValue(":today", todayStr);
-    query.bindValue(":nextWeek", nextWeekStr);
-
-    if (query.exec()) {
-        if (query.next()) {
-            int count = query.value(0).toInt(); // Get the count result
-
-            if(count>0)
-
-            {   ui->ExpirationAlert->setVisible(true);
-                QString message = QString("%1 medicine(s) are going to expire in the next 7 days").arg(count);
-                ui->ExpirationAlert->setText(message);
-            }
-
+    int expiringCount = 0;
+    if (expiryQuery.exec()) {
+        if (expiryQuery.next()) {
+            expiringCount = expiryQuery.value(0).toInt(); // Get the count result
         }
+    } else {
+        qDebug() << "Error executing expiry query: " << expiryQuery.lastError();
     }
-    else
+
+
+    // Query for medicines that have already expired
+    QSqlQuery expiredQuery;
+    expiredQuery.prepare("SELECT COUNT(*) FROM addbox WHERE ExpiryDate < :today");
+    expiredQuery.bindValue(":today", todayStr);
+
+    int expiredCount = 0;
+    if (expiredQuery.exec()) {
+        if (expiredQuery.next()) {
+            expiredCount = expiredQuery.value(0).toInt();
+        }
+    } else {
+        qDebug() << "Error executing expired query: " << expiredQuery.lastError();
+    }
+
+    // Display results in the ExpirationAlert
+    if(expiredCount > 0 || expiringCount > 0 )
     {
-        qDebug() << "Error executing query: " << query.lastError();
+        ui->ExpirationAlert->setVisible(true);
+        QString message1 = QString("%1 medicine(s) are going to expire in the next 7 days and %2 medicine(s) have already expired.")
+                              .arg(expiringCount)
+                              .arg(expiredCount);
+        QString massage2 = QString("%1 medicine(s) are going to expire in the next 7 days")
+                               .arg(expiringCount);
+
+        QString massage3 = QString("Aleart!! %1 medicine(s) have already expired.")
+                               .arg(expiredCount);
+        if(expiredCount > 0 && expiringCount > 0)
+            ui->ExpirationAlert->setText(message1);
+
+        else if(expiredCount > 0)
+            ui->ExpirationAlert->setText(massage3);
+
+        else if(expiringCount > 0)
+            ui->ExpirationAlert->setText(massage2);
     }
 
     database.close();
 }
 
 
-
+void MainWindow::on_pushButton_clicked()
+{
+    checkExpiryDates();
+}
 

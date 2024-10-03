@@ -80,7 +80,7 @@ public:
         ExpirationAlert = new QTextEdit(centralwidget);
         ExpirationAlert->setObjectName("ExpirationAlert");
         ExpirationAlert->setEnabled(true);
-        ExpirationAlert->setGeometry(QRect(573, 506, 211, 61));
+        ExpirationAlert->setGeometry(QRect(580, 470, 211, 61));
         MainWindow->setCentralWidget(centralwidget);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName("statusBar");
