@@ -46,6 +46,7 @@ void soldout::on_soldOutBt_clicked()
     if (selectQuery.exec() && selectQuery.next()) {
         medicineName = selectQuery.value(0).toString();
         purAmount = selectQuery.value(1).toDouble();
+
     } else {
 
         QMessageBox::warning(this, "Box Number Not Found", "The entered box number does not exist in the AddBox table.");
@@ -93,6 +94,16 @@ void soldout::on_soldOutBt_clicked()
     if (!insertQuery.exec()) {
         qDebug() << "Error: Unable to execute query -" << insertQuery.lastError().text();
     } else {
+        QSqlQuery query;
+        query.prepare("DELETE FROM AddBox WHERE number = :boxNumber");
+        query.bindValue(":boxNumber", boxNumber);
+
+
+        if (!query.exec()) {
+             qDebug() << "removed  unsuccessfully.";
+        } else {
+            qDebug() << "removed  successfully.";
+        }
         qDebug() << "Data saved successfully with profit calculated.";
     }
 
