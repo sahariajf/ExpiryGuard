@@ -49,6 +49,11 @@ void MainWindow::on_searchBT_clicked()
 
     QString searchTerm = ui->searchtext->text();
 
+    if (searchTerm.isEmpty()) {
+        QMessageBox::warning(this, "Input Required", "Please input a medicine name.");
+        return;
+    }
+
     QSqlQuery query;
     query.prepare(QString("SELECT name, number , PurAmount FROM addbox WHERE name LIKE '%%1%'").arg(searchTerm));
 
@@ -58,9 +63,9 @@ void MainWindow::on_searchBT_clicked()
         return;
     }
 
-    QStringList resultList; // List to hold the results
+    QStringList resultList;
 
-    // Iterate through the results and populate the QStringList
+
     while (query.next()) {
         QString name = query.value(0).toString();
         int boxNumber = query.value(1).toInt();
