@@ -21,6 +21,8 @@ public:
 private slots:
     void on_selectMonth_currentIndexChanged(int index);
 
+    void on_pushButton_clicked();
+
 private:
     Ui::ShopDashboard *ui;
 };

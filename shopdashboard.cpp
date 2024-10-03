@@ -235,3 +235,10 @@ void ShopDashboard::setupTableView() {
     layout->addWidget(tableView);
 }
 
+
+void ShopDashboard::on_pushButton_clicked()
+{
+    ComboBoxWithFormattedDates();
+    setupTableView();
+}
+

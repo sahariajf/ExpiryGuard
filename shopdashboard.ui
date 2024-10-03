@@ -40,21 +40,75 @@
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>130</y>
+     <y>140</y>
      <width>701</width>
-     <height>331</height>
+     <height>321</height>
     </rect>
    </property>
    <widget class="QTableView" name="tableView">
     <property name="geometry">
      <rect>
-      <x>5</x>
-      <y>0</y>
+      <x>0</x>
+      <y>10</y>
       <width>691</width>
-      <height>331</height>
+      <height>301</height>
      </rect>
     </property>
    </widget>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>470</y>
+     <width>131</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Refresh data</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>20</y>
+     <width>121</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="text">
+    <string>Select month :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>312</x>
+     <y>110</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>OverView :</string>
+   </property>
   </widget>
  </widget>
  <resources/>
