@@ -50,7 +50,7 @@ void MainWindow::on_searchBT_clicked()
     QString searchTerm = ui->searchtext->text();
 
     QSqlQuery query;
-    query.prepare(QString("SELECT name, number FROM addbox WHERE name LIKE '%%1%'").arg(searchTerm));
+    query.prepare(QString("SELECT name, number , PurAmount FROM addbox WHERE name LIKE '%%1%'").arg(searchTerm));
 
 
     if (!query.exec()) {
@@ -64,10 +64,12 @@ void MainWindow::on_searchBT_clicked()
     while (query.next()) {
         QString name = query.value(0).toString();
         int boxNumber = query.value(1).toInt();
+        QString purPrice = query.value(2).toString();
 
-        QString message = QString("%1 is found in box number %2.")
+        QString message = QString("%1 is found in box number %2 which purchge ammount is %3.")
                               .arg(name)
-                              .arg(boxNumber);
+                              .arg(boxNumber)
+                              .arg(purPrice);
         resultList << message;
     }
 
