@@ -4,4 +4,5 @@
 #include "EWIEGA46WW/moc_expiredbox.cpp"
 #include "EWIEGA46WW/moc_expirydashboard.cpp"
 #include "EWIEGA46WW/moc_mainwindow.cpp"
+#include "EWIEGA46WW/moc_shopdashboard.cpp"
 #include "EWIEGA46WW/moc_soldout.cpp"

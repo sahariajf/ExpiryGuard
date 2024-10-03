@@ -33,6 +33,9 @@ set(PROJECT_SOURCES
         expirydashboard.h
         expirydashboard.cpp
         expirydashboard.ui
+        shopdashboard.h
+        shopdashboard.cpp
+        shopdashboard.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -45,6 +48,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         detailaleart.h detailaleart.cpp detailaleart.ui
         expiredbox.h expiredbox.cpp expiredbox.ui
         expirydashboard.h expirydashboard.cpp expirydashboard.ui
+        shopdashboard.h shopdashboard.cpp shopdashboard.ui
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET ExpiryGuard APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

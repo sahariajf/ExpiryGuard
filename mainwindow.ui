@@ -46,7 +46,7 @@
    <widget class="QPushButton" name="searchBT">
     <property name="geometry">
      <rect>
-      <x>652</x>
+      <x>640</x>
       <y>40</y>
       <width>101</width>
       <height>31</height>
@@ -69,10 +69,15 @@
     <property name="geometry">
      <rect>
       <x>440</x>
-      <y>40</y>
+      <y>30</y>
       <width>191</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Input medicine name</string>
@@ -94,7 +99,7 @@
     <property name="geometry">
      <rect>
       <x>440</x>
-      <y>90</y>
+      <y>80</y>
       <width>311</width>
       <height>121</height>
      </rect>
@@ -199,6 +204,19 @@
     </property>
     <property name="text">
      <string>Expired Box</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ADDBoxBt_2">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>30</y>
+      <width>181</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Shop Dashboard</string>
     </property>
    </widget>
   </widget>

@@ -7,6 +7,7 @@
 #include "detailaleart.h"
 #include "expiredbox.h"
 #include "expirydashboard.h"
+#include "shopdashboard.h"
 
 class AddBox;
 
@@ -44,6 +45,8 @@ private slots:
 
     void on_ExpiryDashBoardBT_clicked();
 
+    void on_ADDBoxBt_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     addbox *ptrAddbox;
@@ -51,5 +54,6 @@ private:
     detailAleart *ptrdetailAleart;
     expiredBox *ptrExpiredBox;
     ExpiryDashboard *ptrExpirydashboard;
+    ShopDashboard *ptrShopDashboard;
 };
 #endif // MAINWINDOW_H

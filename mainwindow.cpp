@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     ptrdetailAleart = new detailAleart();
     ptrExpiredBox = new expiredBox();
     ptrExpirydashboard = new ExpiryDashboard();
+    ptrShopDashboard = new ShopDashboard();
 
     ui->searchResult->setVisible(false);
     ui->ExpirationAlert->setVisible(false);
@@ -28,6 +29,7 @@ MainWindow::~MainWindow()
     delete ptrdetailAleart;
     delete ptrExpiredBox;
     delete ptrExpirydashboard;
+    delete ptrShopDashboard;
     delete ui;
 }
 
@@ -119,7 +121,7 @@ void MainWindow::showNotification(const QString& massage)
     QSystemTrayIcon* trayIcon = new QSystemTrayIcon(this);
     trayIcon->setIcon(QApplication::style()->standardIcon(QStyle::SP_ComputerIcon));
     trayIcon->show();
-    trayIcon->showMessage("Expiration Alert", massage, QSystemTrayIcon::Information, 5000); // 5000 ms (5 seconds)
+    trayIcon->showMessage("Expiration Alert", massage, QSystemTrayIcon::Information, 10000);
     trayIcon->hide();
     delete trayIcon;
 }
@@ -149,7 +151,7 @@ void MainWindow::checkExpiryDates()
     int expiringCount = 0;
     if (expiryQuery.exec()) {
         if (expiryQuery.next()) {
-            expiringCount = expiryQuery.value(0).toInt(); // Get the count result
+            expiringCount = expiryQuery.value(0).toInt();
         }
     } else {
         qDebug() << "Error executing expiry query: " << expiryQuery.lastError();
@@ -226,5 +228,11 @@ void MainWindow::on_ExpiredBoxBt_clicked()
 void MainWindow::on_ExpiryDashBoardBT_clicked()
 {
     ptrExpirydashboard->show();
+}
+
+
+void MainWindow::on_ADDBoxBt_2_clicked()
+{
+    ptrShopDashboard->show();
 }
 

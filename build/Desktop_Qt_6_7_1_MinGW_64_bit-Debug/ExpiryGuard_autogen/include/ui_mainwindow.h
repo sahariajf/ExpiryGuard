@@ -35,6 +35,7 @@ public:
     QPushButton *DetailsBt;
     QPushButton *ExpiryDashBoardBT;
     QPushButton *ExpiredBoxBt;
+    QPushButton *ADDBoxBt_2;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -53,7 +54,7 @@ public:
         SoldOutBt->setGeometry(QRect(20, 90, 141, 41));
         searchBT = new QPushButton(centralwidget);
         searchBT->setObjectName("searchBT");
-        searchBT->setGeometry(QRect(652, 40, 101, 31));
+        searchBT->setGeometry(QRect(640, 40, 101, 31));
         QFont font;
         font.setPointSize(11);
         font.setBold(true);
@@ -61,14 +62,17 @@ public:
         searchBT->setCheckable(false);
         searchtext = new QLineEdit(centralwidget);
         searchtext->setObjectName("searchtext");
-        searchtext->setGeometry(QRect(440, 40, 191, 31));
+        searchtext->setGeometry(QRect(440, 30, 191, 41));
+        QFont font1;
+        font1.setPointSize(9);
+        searchtext->setFont(font1);
         searchtext->setEchoMode(QLineEdit::Normal);
         searchtext->setReadOnly(false);
         searchtext->setClearButtonEnabled(true);
         searchResult = new QListView(centralwidget);
         searchResult->setObjectName("searchResult");
         searchResult->setEnabled(true);
-        searchResult->setGeometry(QRect(440, 90, 311, 121));
+        searchResult->setGeometry(QRect(440, 80, 311, 121));
         searchResult->setMouseTracking(true);
         searchResult->setFocusPolicy(Qt::NoFocus);
         searchResult->setLayoutDirection(Qt::LeftToRight);
@@ -97,6 +101,9 @@ public:
         ExpiredBoxBt = new QPushButton(centralwidget);
         ExpiredBoxBt->setObjectName("ExpiredBoxBt");
         ExpiredBoxBt->setGeometry(QRect(20, 210, 141, 41));
+        ADDBoxBt_2 = new QPushButton(centralwidget);
+        ADDBoxBt_2->setObjectName("ADDBoxBt_2");
+        ADDBoxBt_2->setGeometry(QRect(220, 30, 181, 41));
         MainWindow->setCentralWidget(centralwidget);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName("statusBar");
@@ -118,6 +125,7 @@ public:
         DetailsBt->setText(QCoreApplication::translate("MainWindow", "Details", nullptr));
         ExpiryDashBoardBT->setText(QCoreApplication::translate("MainWindow", "Expiry DashBoard", nullptr));
         ExpiredBoxBt->setText(QCoreApplication::translate("MainWindow", "Expired Box", nullptr));
+        ADDBoxBt_2->setText(QCoreApplication::translate("MainWindow", "Shop Dashboard", nullptr));
     } // retranslateUi
 
 };
