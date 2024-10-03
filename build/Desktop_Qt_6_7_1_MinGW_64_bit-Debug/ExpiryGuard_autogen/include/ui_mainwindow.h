@@ -61,13 +61,16 @@ public:
         searchtext->setClearButtonEnabled(true);
         searchResult = new QListView(centralwidget);
         searchResult->setObjectName("searchResult");
-        searchResult->setGeometry(QRect(440, 90, 191, 121));
+        searchResult->setGeometry(QRect(440, 90, 311, 121));
         searchResult->setMouseTracking(true);
         searchResult->setFocusPolicy(Qt::NoFocus);
         searchResult->setLayoutDirection(Qt::LeftToRight);
         searchResult->setAutoFillBackground(false);
+        searchResult->setAlternatingRowColors(true);
+        searchResult->setSelectionMode(QAbstractItemView::NoSelection);
         searchResult->setMovement(QListView::Free);
         searchResult->setProperty("isWrapping", QVariant(false));
+        searchResult->setSpacing(2);
         searchResult->setWordWrap(true);
         searchResult->setItemAlignment(Qt::AlignCenter);
         MainWindow->setCentralWidget(centralwidget);
