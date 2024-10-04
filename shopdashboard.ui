@@ -16,54 +16,143 @@
   <property name="windowTitle">
    <string>Shop Dashboard</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+    background-color: rgb(235, 235, 235); 
+    color: #333; 
+}
+
+
+QHeaderView {
+    background-color: #009688; 
+    color: #ffffff; 
+}
+
+QListView {
+    background-color:rgb(193, 201, 255); 
+    border: 1px solid #ccc; 
+    border-radius: 7px;	
+}
+
+
+QScrollBar:vertical {
+    border: 1px solid #ccc; 
+    background: #f4f4f4;
+    width: 12px; 
+}
+
+QScrollBar::handle:vertical {
+    background: #009688; 
+    min-height: 20px;
+}
+
+QScrollBar::add-line:vertical, 
+QScrollBar::sub-line:vertical {
+    background: none; 
+}</string>
+  </property>
   <widget class="QComboBox" name="selectMonth">
    <property name="geometry">
     <rect>
-     <x>310</x>
+     <x>370</x>
      <y>20</y>
      <width>151</width>
      <height>28</height>
     </rect>
    </property>
-  </widget>
-  <widget class="QLineEdit" name="monthDetails">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>60</y>
-     <width>701</width>
-     <height>41</height>
-    </rect>
+   <property name="styleSheet">
+    <string notr="true">QComboBox {
+    background-color: #009688; 
+    color: #ffffff; 
+    border: none; 
+    border-radius: 3px; 
+    padding: 5px; 
+    font-size: 15px; 
+}
+
+</string>
    </property>
   </widget>
   <widget class="QWidget" name="centralWidget" native="true">
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>140</y>
+     <y>170</y>
      <width>701</width>
-     <height>321</height>
+     <height>301</height>
     </rect>
    </property>
    <widget class="QTableView" name="tableView">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>20</x>
       <y>10</y>
-      <width>691</width>
-      <height>301</height>
+      <width>661</width>
+      <height>271</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QTableView {
+    background-color: #f5f5f5;   /* Light gray background */
+    gridline-color: #cccccc;      /* Soft gray gridlines */
+    border: 1px solid #c3c3c3;    /* Table border */
+    selection-background-color: #87cefa;  /* Light blue for selected rows */
+    selection-color: white;       /* Text color for selected rows */
+    text-align: center;           /* Center align the text */
+}
+
+QHeaderView::section {
+    background-color: #333333;    /* Dark header background */
+    color: white;                 /* White text in header */
+    font-weight: bold;            /* Bold header text */
+    padding: 5px;                 /* Add some padding to header */
+    border: none;                 /* No border for header */
+    text-align: center;           /* Center align header text */
+}
+
+QTableView QTableCornerButton::section {
+    background-color: #333333;    /* Dark corner button (matches header) */
+}</string>
+    </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::NoEditTriggers</set>
+    </property>
+    <property name="gridStyle">
+     <enum>Qt::DashDotLine</enum>
+    </property>
+    <attribute name="horizontalHeaderMinimumSectionSize">
+     <number>43</number>
+    </attribute>
    </widget>
   </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
      <x>590</x>
-     <y>470</y>
+     <y>480</y>
      <width>131</width>
-     <height>29</height>
+     <height>31</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>-1</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: #009688; 
+    color: #ffffff; 
+    border: none; 
+    border-radius: 10px; 
+    padding: 5px; 
+    font-size: 18px; 
+}
+
+QPushButton:hover {
+    background-color: #00796b; 
+}</string>
    </property>
    <property name="text">
     <string>Refresh data</string>
@@ -72,20 +161,26 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>180</x>
+     <x>220</x>
      <y>20</y>
-     <width>121</width>
+     <width>141</width>
      <height>20</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>10</pointsize>
+     <pointsize>-1</pointsize>
      <bold>true</bold>
     </font>
    </property>
    <property name="layoutDirection">
     <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+ 	color:rgb(0, 104, 94);
+	font-size:20px;
+}</string>
    </property>
    <property name="text">
     <string>Select month :</string>
@@ -94,20 +189,59 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>312</x>
-     <y>110</y>
-     <width>111</width>
-     <height>20</height>
+     <x>320</x>
+     <y>130</y>
+     <width>131</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <pointsize>14</pointsize>
      <bold>true</bold>
+     <underline>true</underline>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+
+	color: rgb(170, 0, 0);
+}</string>
    </property>
    <property name="text">
     <string>OverView :</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="monthDetails">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>60</y>
+     <width>701</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QTextEdit:focus {
+    border: 2px solid #87cefa;      /* Blue border on focus */
+    background-color: #ffffff;      /* White background on focus */
+}
+
+QScrollBar:vertical {
+    border: 1px solid #ccc; 
+    background: #f4f4f4;
+    width: 8px; 
+}
+
+QTextEdit {
+    background-color: #f0f0f0;      /* Light gray background */
+    border: 2px solid #c3c3c3;      /* Soft gray border */
+    border-radius: 7px;             /* Rounded corners */
+    padding: 5px 10px;              /* Padding inside the line edit */
+    font-size: 16px;                /* Font size */
+    color: #333333;                 /* Text color */
+ font-weight: bold; 
+}</string>
    </property>
   </widget>
  </widget>

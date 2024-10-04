@@ -151,7 +151,7 @@ public:
 "}"));
         label_4 = new QLabel(soldout);
         label_4->setObjectName("label_4");
-        label_4->setGeometry(QRect(130, 270, 331, 261));
+        label_4->setGeometry(QRect(80, 250, 381, 281));
         label_4->setStyleSheet(QString::fromUtf8("image: url(:/main1/Picture3.png);"));
         label_4->raise();
         label->raise();

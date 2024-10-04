@@ -69,14 +69,14 @@ public:
 "}\n"
 "\n"
 "QLabel {\n"
-"  color:rgb(0, 0, 0)\n"
+"  color:rgb(0, 0, 0);\n"
+"  font-size:17px;\n"
 "	\n"
 "}"));
         label = new QLabel(addbox);
         label->setObjectName("label");
         label->setGeometry(QRect(110, 90, 121, 20));
         QFont font;
-        font.setPointSize(12);
         font.setBold(true);
         label->setFont(font);
         BoxNumberIn = new QLineEdit(addbox);
@@ -100,24 +100,36 @@ public:
         SaveBt = new QPushButton(addbox);
         SaveBt->setObjectName("SaveBt");
         SaveBt->setGeometry(QRect(160, 310, 91, 31));
-        SaveBt->setFont(font);
+        QFont font1;
+        font1.setPointSize(12);
+        font1.setBold(true);
+        SaveBt->setFont(font1);
         SaveBt->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
 "border:none;\n"
 "color:white;\n"
 "background-color:rgb(0, 108, 0);\n"
-"border-radius:50px;\n"
+"border-radius: 7px;\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(0, 34, 0); \n"
 "}"));
         ResetBt = new QPushButton(addbox);
         ResetBt->setObjectName("ResetBt");
         ResetBt->setGeometry(QRect(270, 310, 81, 31));
-        ResetBt->setFont(font);
+        ResetBt->setFont(font1);
         ResetBt->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
 "border:none;\n"
 "color:white;\n"
 "background-color:red;\n"
-"border-radius:30px;\n"
+"border-radius: 7px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(85, 0, 0); \n"
 "}"));
         PurDatein = new QDateEdit(addbox);
         PurDatein->setObjectName("PurDatein");
@@ -170,7 +182,7 @@ public:
         label->setText(QCoreApplication::translate("addbox", "Box Number :", nullptr));
         label_2->setText(QCoreApplication::translate("addbox", "Purchase Date :", nullptr));
         label_3->setText(QCoreApplication::translate("addbox", "Expiry Date  :", nullptr));
-        label_4->setText(QCoreApplication::translate("addbox", "Purchase Amount:", nullptr));
+        label_4->setText(QCoreApplication::translate("addbox", "Purchase Amount :", nullptr));
         SaveBt->setText(QCoreApplication::translate("addbox", "Save", nullptr));
         ResetBt->setText(QCoreApplication::translate("addbox", "Reset", nullptr));
         PurDatein->setDisplayFormat(QCoreApplication::translate("addbox", "yyyy-MM-dd", nullptr));
