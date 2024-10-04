@@ -99,7 +99,7 @@ public:
         PurDatein->setGeometry(QRect(250, 170, 161, 26));
         PurDatein->setFrame(true);
         PurDatein->setKeyboardTracking(true);
-        PurDatein->setMinimumDateTime(QDateTime(QDate(2024, 9, 13), QTime(0, 0, 0)));
+        PurDatein->setMinimumDateTime(QDateTime(QDate(2024, 9, 12), QTime(0, 0, 0)));
         PurDatein->setCalendarPopup(true);
         PurDatein->setCurrentSectionIndex(0);
         ExpiryDatein = new QDateEdit(addbox);
@@ -107,7 +107,7 @@ public:
         ExpiryDatein->setEnabled(true);
         ExpiryDatein->setGeometry(QRect(250, 210, 161, 26));
         ExpiryDatein->setFrame(true);
-        ExpiryDatein->setMinimumDateTime(QDateTime(QDate(2024, 9, 12), QTime(0, 0, 0)));
+        ExpiryDatein->setMinimumDateTime(QDateTime(QDate(2024, 9, 11), QTime(0, 0, 0)));
         ExpiryDatein->setCalendarPopup(true);
         label_5 = new QLabel(addbox);
         label_5->setObjectName("label_5");

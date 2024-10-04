@@ -7,6 +7,14 @@ addbox::addbox(QWidget *parent)
     , ui(new Ui::addbox)
 {
     ui->setupUi(this);
+    QDateEdit *dateEdit = ui->ExpiryDatein;
+    QDateEdit *dateEdit2 = ui->PurDatein;
+    QDate todayDate = QDate::currentDate();
+
+    dateEdit->setDate(todayDate);
+    dateEdit->setDisplayFormat("yyyy-MM-dd");
+    dateEdit2->setDate(todayDate);
+    dateEdit2->setDisplayFormat("yyyy-MM-dd");
 }
 
 
@@ -99,8 +107,24 @@ void addbox::on_SaveBt_clicked()
         QMessageBox::warning(this, "error", "try again");
     } else {
         qDebug() << "Data saved successfully.";
+
+    }
+
+    QSqlQuery insertDashboardQuery(database);
+    insertDashboardQuery.prepare("INSERT INTO dashboard (date, puramount, sellamount, expenses) "
+                                 "VALUES (:date, :purAmount, 0, 0)");
+
+    // Bind values to placeholders
+    insertDashboardQuery.bindValue(":date", purDate);
+    insertDashboardQuery.bindValue(":purAmount", purAmount);
+
+    if (!insertDashboardQuery.exec()) {
+        qDebug() << "Insert error:" << insertDashboardQuery.lastError();
+    } else {
+        qDebug() << "Data inserted successfully into dashboard!";
         QMessageBox::information(this, "Success", "Saved successfully");
     }
+
 
     // Close the database connection
     database.close();

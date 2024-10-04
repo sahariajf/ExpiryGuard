@@ -50,10 +50,10 @@ public:
         centralWidget->setGeometry(QRect(40, 140, 701, 321));
         tableView = new QTableView(centralWidget);
         tableView->setObjectName("tableView");
-        tableView->setGeometry(QRect(10, 10, 691, 311));
+        tableView->setGeometry(QRect(0, 10, 691, 301));
         pushButton = new QPushButton(ShopDashboard);
         pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(592, 480, 131, 29));
+        pushButton->setGeometry(QRect(590, 470, 131, 29));
         label = new QLabel(ShopDashboard);
         label->setObjectName("label");
         label->setGeometry(QRect(180, 20, 121, 20));

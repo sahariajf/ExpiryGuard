@@ -6,6 +6,12 @@ soldout::soldout(QWidget *parent)
     , ui(new Ui::soldout)
 {
     ui->setupUi(this);
+    QDateEdit *dateEdit = ui->sellDateIn;
+    QDate todayDate = QDate::currentDate();
+
+    dateEdit->setDate(todayDate);
+    dateEdit->setDisplayFormat("yyyy-MM-dd");
+
 }
 
 soldout::~soldout()
@@ -15,6 +21,7 @@ soldout::~soldout()
 
 void soldout::on_soldOutBt_clicked()
 {
+
     QString boxNumber = ui->boxNumberIn->text();
     QString sellDate = ui->sellDateIn->text();
     QString sellAmount = ui->sellAmountIn->text();
@@ -105,6 +112,21 @@ void soldout::on_soldOutBt_clicked()
             qDebug() << "removed  successfully.";
         }
         qDebug() << "Data saved successfully with profit calculated.";
+    }
+
+    QSqlQuery insertDashboardQuery(database);
+    insertDashboardQuery.prepare("INSERT INTO dashboard (date, puramount, sellamount, expenses) "
+                                 "VALUES (:date, 0, :sellamount, 0)");
+
+    // Bind values to placeholders
+    insertDashboardQuery.bindValue(":date", sellDate);
+    insertDashboardQuery.bindValue(":sellamount", sellAmount);
+
+    if (!insertDashboardQuery.exec()) {
+        qDebug() << "Insert error:" << insertDashboardQuery.lastError();
+    } else {
+        qDebug() << "Data inserted successfully into dashboard!";
+        QMessageBox::information(this, "Congratulations", "Sold out!");
     }
 
 
