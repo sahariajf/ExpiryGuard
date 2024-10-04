@@ -9,6 +9,7 @@
 #include "expirydashboard.h"
 #include "shopdashboard.h"
 #include "totalexpenses.h"
+#include <QTimer>
 
 class AddBox;
 
@@ -50,6 +51,8 @@ private slots:
 
     void on_expensesBT_clicked();
 
+
+
 private:
     Ui::MainWindow *ui;
     addbox *ptrAddbox;
@@ -59,5 +62,6 @@ private:
     ExpiryDashboard *ptrExpirydashboard;
     ShopDashboard *ptrShopDashboard;
     totalexpenses *ptrTotalExpenses;
+
 };
 #endif // MAINWINDOW_H

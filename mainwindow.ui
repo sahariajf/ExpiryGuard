@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>798</width>
-    <height>600</height>
+    <width>944</width>
+    <height>655</height>
    </rect>
   </property>
   <property name="cursor">
@@ -15,6 +15,74 @@
   </property>
   <property name="windowTitle">
    <string>ExpiryGuard</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+QWidget {
+    background-color: #f4f4f4; 
+    color: #333; 
+}
+
+
+QMainWindow {
+    background-color: #ffffff;
+}
+
+
+QHeaderView {
+    background-color: #009688; 
+    color: #ffffff; 
+}
+
+
+QPushButton {
+    background-color: #009688; 
+    color: #ffffff; 
+    border: none; 
+    border-radius: 10px; 
+    padding: 5px; 
+    font-size: 15px; 
+}
+
+QPushButton:hover {
+    background-color: #00796b; 
+}
+
+
+
+
+
+QLabel {
+    font-size: 16px; 
+    margin-bottom: 5px; 
+}
+
+
+QListView {
+    background-color:rgb(193, 201, 255); 
+    border: 1px solid #ccc; 
+    border-radius: 7px;
+	
+}
+
+
+QScrollBar:vertical {
+    border: 1px solid #ccc; 
+    background: #f4f4f4;
+    width: 12px; 
+}
+
+QScrollBar::handle:vertical {
+    background: #009688; 
+    min-height: 20px;
+}
+
+QScrollBar::add-line:vertical, 
+QScrollBar::sub-line:vertical {
+    background: none; 
+}
+
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="ADDBoxBt">
@@ -25,6 +93,12 @@
       <width>141</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>ADD Box</string>
@@ -39,6 +113,12 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
      <string>Sold Out</string>
     </property>
@@ -46,7 +126,7 @@
    <widget class="QPushButton" name="searchBT">
     <property name="geometry">
      <rect>
-      <x>640</x>
+      <x>810</x>
       <y>40</y>
       <width>101</width>
       <height>31</height>
@@ -54,7 +134,7 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>11</pointsize>
+      <pointsize>-1</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -68,9 +148,9 @@
    <widget class="QLineEdit" name="searchtext">
     <property name="geometry">
      <rect>
-      <x>440</x>
+      <x>600</x>
       <y>30</y>
-      <width>191</width>
+      <width>201</width>
       <height>41</height>
      </rect>
     </property>
@@ -98,11 +178,17 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>440</x>
+      <x>600</x>
       <y>80</y>
-      <width>311</width>
+      <width>321</width>
       <height>121</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Lima Bosonto Unicode</family>
+      <pointsize>11</pointsize>
+     </font>
     </property>
     <property name="mouseTracking">
      <bool>true</bool>
@@ -138,7 +224,7 @@
      <bool>false</bool>
     </property>
     <property name="itemAlignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignAbsolute|Qt::AlignCenter|Qt::AlignHCenter|Qt::AlignJustify|Qt::AlignTop|Qt::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QTextEdit" name="ExpirationAlert">
@@ -147,21 +233,42 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>570</x>
+      <x>690</x>
       <y>470</y>
-      <width>221</width>
-      <height>61</height>
+      <width>241</width>
+      <height>81</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit, QTextEdit {
+    border: 3px solid #ccc; 
+    border-radius: 10px; 
+    padding: 5px; 
+    font-size: 14px; 
+	color : rgb(165, 0, 0)
+}</string>
     </property>
    </widget>
    <widget class="QPushButton" name="refreshBt">
     <property name="geometry">
      <rect>
-      <x>690</x>
-      <y>540</y>
-      <width>93</width>
-      <height>29</height>
+      <x>810</x>
+      <y>570</y>
+      <width>91</width>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Refresh</string>
@@ -170,11 +277,17 @@
    <widget class="QPushButton" name="DetailsBt">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>540</y>
-      <width>93</width>
-      <height>29</height>
+      <x>700</x>
+      <y>570</y>
+      <width>91</width>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Details</string>
@@ -189,6 +302,12 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
      <string>Expiry DashBoard</string>
     </property>
@@ -202,6 +321,12 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
      <string>Expired Box</string>
     </property>
@@ -209,11 +334,18 @@
    <widget class="QPushButton" name="ADDBoxBt_2">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>320</x>
       <y>30</y>
       <width>181</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Lima Bosonto Unicode</family>
+      <pointsize>-1</pointsize>
+      <bold>false</bold>
+     </font>
     </property>
     <property name="text">
      <string>Shop Dashboard</string>
@@ -228,10 +360,79 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
      <string>Expenses</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>470</y>
+      <width>221</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/main1/Picture2.png);</string>
+    </property>
+    <property name="text">
+     <string> </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>500</y>
+      <width>1081</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/main1/footer.png);</string>
+    </property>
+    <property name="text">
+     <string> </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>220</y>
+      <width>481</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/main1/mid.png);</string>
+    </property>
+    <property name="text">
+     <string> </string>
+    </property>
+   </widget>
+   <zorder>label</zorder>
+   <zorder>label_2</zorder>
+   <zorder>ADDBoxBt</zorder>
+   <zorder>SoldOutBt</zorder>
+   <zorder>searchBT</zorder>
+   <zorder>searchtext</zorder>
+   <zorder>searchResult</zorder>
+   <zorder>ExpirationAlert</zorder>
+   <zorder>refreshBt</zorder>
+   <zorder>DetailsBt</zorder>
+   <zorder>ExpiryDashBoardBT</zorder>
+   <zorder>ExpiredBoxBt</zorder>
+   <zorder>ADDBoxBt_2</zorder>
+   <zorder>expensesBT</zorder>
+   <zorder>label_3</zorder>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>

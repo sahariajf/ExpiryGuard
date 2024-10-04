@@ -19,8 +19,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->ExpirationAlert->setVisible(false);
 
     checkExpiryDates();
-
-
 }
 
 MainWindow::~MainWindow()

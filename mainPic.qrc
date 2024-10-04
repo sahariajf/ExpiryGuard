@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/main1">
+        <file>mainWindow.png</file>
+        <file>Picture1.png</file>
+        <file>Picture2.png</file>
+        <file>footer.png</file>
+        <file>mid.png</file>
+    </qresource>
+    <qresource prefix="/"/>
+</RCC>
