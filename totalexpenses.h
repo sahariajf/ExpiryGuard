@@ -19,6 +19,8 @@ public:
 private slots:
     void on_soldOutBt_clicked();
 
+    void on_ResetBt_clicked();
+
 private:
     Ui::totalexpenses *ui;
 };

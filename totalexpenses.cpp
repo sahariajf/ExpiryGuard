@@ -53,5 +53,18 @@ void totalexpenses::on_soldOutBt_clicked()
          QMessageBox::information(this, "Success", "Saved Successfully!");
     }
 
+    ui->AmountIN->clear();
+    ui->dateEdit->clear();
+    ui->DiscriptionIn->clear();
+
+
+}
+
+
+void totalexpenses::on_ResetBt_clicked()
+{
+    ui->AmountIN->clear();
+    ui->dateEdit->clear();
+    ui->DiscriptionIn->clear();
 }
 
