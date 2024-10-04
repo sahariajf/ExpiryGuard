@@ -37,11 +37,25 @@ public:
             totalexpenses->setObjectName("totalexpenses");
         totalexpenses->setWindowModality(Qt::ApplicationModal);
         totalexpenses->resize(415, 283);
+        totalexpenses->setStyleSheet(QString::fromUtf8("QWidget {\n"
+"    background-color: rgb(235, 235, 235); \n"
+"    color: #333; \n"
+"}\n"
+"\n"
+"\n"
+"QHeaderView {\n"
+"    background-color: #009688; \n"
+"    color: #ffffff; \n"
+"}\n"
+"\n"
+"QLabel{\n"
+"  font-size:18px;\n"
+"}\n"
+""));
         label = new QLabel(totalexpenses);
         label->setObjectName("label");
         label->setGeometry(QRect(110, 60, 63, 20));
         QFont font;
-        font.setPointSize(10);
         font.setBold(true);
         label->setFont(font);
         label_2 = new QLabel(totalexpenses);
@@ -74,7 +88,12 @@ public:
 "border:none;\n"
 "color:white;\n"
 "background-color:rgb(0, 108, 0);\n"
-"border-radius:50px;\n"
+"border-radius: 7px;\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(0, 34, 0); \n"
 "}"));
         ResetBt = new QPushButton(totalexpenses);
         ResetBt->setObjectName("ResetBt");
@@ -85,7 +104,11 @@ public:
 "border:none;\n"
 "color:white;\n"
 "background-color:red;\n"
-"border-radius:30px;\n"
+"border-radius: 7px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(85, 0, 0); \n"
 "}"));
 
         retranslateUi(totalexpenses);

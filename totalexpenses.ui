@@ -16,6 +16,23 @@
   <property name="windowTitle">
    <string>Expenses</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+    background-color: rgb(235, 235, 235); 
+    color: #333; 
+}
+
+
+QHeaderView {
+    background-color: #009688; 
+    color: #ffffff; 
+}
+
+QLabel{
+  font-size:18px;
+}
+</string>
+  </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
@@ -27,7 +44,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>10</pointsize>
+     <pointsize>-1</pointsize>
      <bold>true</bold>
     </font>
    </property>
@@ -46,7 +63,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>10</pointsize>
+     <pointsize>-1</pointsize>
      <bold>true</bold>
     </font>
    </property>
@@ -65,7 +82,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>10</pointsize>
+     <pointsize>-1</pointsize>
      <bold>true</bold>
     </font>
    </property>
@@ -127,7 +144,12 @@
 border:none;
 color:white;
 background-color:rgb(0, 108, 0);
-border-radius:50px;
+border-radius: 7px;
+
+}
+
+QPushButton:hover {
+    background-color: rgb(0, 34, 0); 
 }</string>
    </property>
    <property name="text">
@@ -155,7 +177,11 @@ border-radius:50px;
 border:none;
 color:white;
 background-color:red;
-border-radius:30px;
+border-radius: 7px;
+}
+
+QPushButton:hover {
+    background-color: rgb(85, 0, 0); 
 }</string>
    </property>
    <property name="text">
