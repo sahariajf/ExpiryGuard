@@ -3,6 +3,7 @@
 #include "databaseheader.h"
 #include <QSet>
 
+
 ShopDashboard::ShopDashboard(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::ShopDashboard)
@@ -73,6 +74,10 @@ void ShopDashboard::ComboBoxWithFormattedDates()
 
 void ShopDashboard::on_selectMonth_currentIndexChanged(int index)
 {
+    if (index < 0 || index >= ui->selectMonth->count()) {
+        return;
+    }
+
     QString selectedMonthYear = ui->selectMonth->currentText();
     QStringList parts = selectedMonthYear.split(" - ");
 
@@ -151,8 +156,10 @@ void ShopDashboard::on_selectMonth_currentIndexChanged(int index)
 
 }
 
+ // Create table
+
 void ShopDashboard::setupTableView() {
-    // Create database connection
+
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("E:/1Y2S/project/ExpiryGuard/database/ExpiryGurard.db");
     if (!db.open()) {
@@ -160,30 +167,22 @@ void ShopDashboard::setupTableView() {
         return;
     }
 
-    // Set up the model
+
     QSqlQueryModel* model = new QSqlQueryModel(this);
 
-    // SQL query to retrieve data
+
     QSqlQuery query;
     query.prepare(R"(
-        WITH unique_months AS (
-            SELECT strftime('%Y-%m', PurDate) AS month_year, strftime('%m', PurDate) AS month_num
-            FROM AddBox
-            UNION
-            SELECT strftime('%Y-%m', SellDate) AS month_year, strftime('%m', SellDate) AS month_num
-            FROM SoldOut
-        ),
-        monthly_totals AS (
+        WITH monthly_totals AS (
             SELECT
-                um.month_year,
-                um.month_num,
-                COALESCE(SUM(ab.PurAmount), 0) AS total_purchase,
-                COALESCE(SUM(so.SellAmount), 0) AS total_sale
-            FROM unique_months um
-            LEFT JOIN AddBox ab ON strftime('%Y-%m', ab.PurDate) = um.month_year
-            LEFT JOIN SoldOut so ON strftime('%Y-%m', so.SellDate) = um.month_year
-            GROUP BY um.month_year, um.month_num
-            ORDER BY um.month_year
+                strftime('%Y-%m', Date) AS month_year,
+                strftime('%m', Date) AS month_num,
+                COALESCE(SUM(purAmount), 0) AS total_purchase,
+                COALESCE(SUM(expenses), 0) AS total_expenses,
+                COALESCE(SUM(sellAmount), 0) AS total_sale
+            FROM dashboard
+            GROUP BY month_year, month_num
+            ORDER BY month_year
         )
         SELECT
             CASE month_num
@@ -201,8 +200,9 @@ void ShopDashboard::setupTableView() {
                 WHEN '12' THEN 'December'
             END || ' - ' || substr(month_year, 1, 4) AS month_year,
             total_purchase,
+            total_expenses,
             total_sale,
-            (total_sale - total_purchase) AS profit
+            (total_sale - (total_purchase + total_expenses)) AS profit
         FROM monthly_totals;
     )");
 
@@ -215,7 +215,7 @@ void ShopDashboard::setupTableView() {
     model->setQuery(query);
 
     // Check if the model has rows
-    if (model->rowCount() == 0) {
+    if (model->rowCount() < 0) {
         QMessageBox::information(this, "No Data", "No data available for the selected period.");
         return;
     }
@@ -223,17 +223,29 @@ void ShopDashboard::setupTableView() {
     // Set header data
     model->setHeaderData(0, Qt::Horizontal, "Month");
     model->setHeaderData(1, Qt::Horizontal, "Total Purchase Amount");
-    model->setHeaderData(2, Qt::Horizontal, "Total Sale Amount");
-    model->setHeaderData(3, Qt::Horizontal, "Profit"); // Set header for profit
+    model->setHeaderData(2, Qt::Horizontal, "Total Expenses");
+    model->setHeaderData(3, Qt::Horizontal, "Total Sale Amount");
+    model->setHeaderData(4, Qt::Horizontal, "Profit");
 
-    // Set up the table view
+    QLayout* existingLayout = ui->centralWidget->layout();
+
+
+    if (existingLayout) {
+        QLayoutItem* item;
+        while ((item = existingLayout->takeAt(0))) {
+            delete item->widget();
+        }
+    } else {
+        existingLayout = new QVBoxLayout(ui->centralWidget);
+    }
+
     QTableView* tableView = new QTableView(this);
     tableView->setModel(model);
     tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
-    // Create a layout and add the table view
-    QVBoxLayout* layout = new QVBoxLayout(ui->centralWidget); // Assuming you have a central widget
-    layout->addWidget(tableView);
+    existingLayout->addWidget(tableView);
+
+    db.close();
 }
 
 

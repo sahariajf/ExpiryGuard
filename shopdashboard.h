@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include "databaseheader.h"
+#include <QTableView>
+
 
 namespace Ui {
 class ShopDashboard;
@@ -25,6 +27,7 @@ private slots:
 
 private:
     Ui::ShopDashboard *ui;
+    QTableView *tableView;
 };
 
 #endif // SHOPDASHBOARD_H
