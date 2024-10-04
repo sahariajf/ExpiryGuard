@@ -55,6 +55,7 @@ public:
         dateEdit = new QDateEdit(totalexpenses);
         dateEdit->setObjectName("dateEdit");
         dateEdit->setGeometry(QRect(180, 60, 151, 29));
+        dateEdit->setCalendarPopup(true);
         DiscriptionIn = new QLineEdit(totalexpenses);
         DiscriptionIn->setObjectName("DiscriptionIn");
         DiscriptionIn->setGeometry(QRect(180, 100, 151, 28));

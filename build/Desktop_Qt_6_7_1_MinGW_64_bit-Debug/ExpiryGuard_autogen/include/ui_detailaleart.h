@@ -14,6 +14,7 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListView>
+#include <QtWidgets/QPushButton>
 
 QT_BEGIN_NAMESPACE
 
@@ -24,6 +25,7 @@ public:
     QListView *ExpiringView;
     QLabel *label;
     QLabel *label_2;
+    QPushButton *pushButton;
 
     void setupUi(QDialog *detailAleart)
     {
@@ -58,6 +60,9 @@ public:
         label_2->setObjectName("label_2");
         label_2->setGeometry(QRect(120, 220, 211, 41));
         label_2->setFont(font);
+        pushButton = new QPushButton(detailAleart);
+        pushButton->setObjectName("pushButton");
+        pushButton->setGeometry(QRect(160, 440, 83, 29));
 
         retranslateUi(detailAleart);
 
@@ -69,6 +74,7 @@ public:
         detailAleart->setWindowTitle(QCoreApplication::translate("detailAleart", "Detail Aleart", nullptr));
         label->setText(QCoreApplication::translate("detailAleart", "Already Expired", nullptr));
         label_2->setText(QCoreApplication::translate("detailAleart", "Going to Expire", nullptr));
+        pushButton->setText(QCoreApplication::translate("detailAleart", "Refresh", nullptr));
     } // retranslateUi
 
 };

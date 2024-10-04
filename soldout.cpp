@@ -118,7 +118,7 @@ void soldout::on_soldOutBt_clicked()
     insertDashboardQuery.prepare("INSERT INTO dashboard (date, puramount, sellamount, expenses) "
                                  "VALUES (:date, 0, :sellamount, 0)");
 
-    // Bind values to placeholders
+
     insertDashboardQuery.bindValue(":date", sellDate);
     insertDashboardQuery.bindValue(":sellamount", sellAmount);
 

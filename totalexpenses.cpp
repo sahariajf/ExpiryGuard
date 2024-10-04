@@ -6,6 +6,11 @@ totalexpenses::totalexpenses(QWidget *parent)
     , ui(new Ui::totalexpenses)
 {
     ui->setupUi(this);
+    QDateEdit *dateEdit = ui->dateEdit;
+    QDate todayDate = QDate::currentDate();
+
+    dateEdit->setDate(todayDate);
+    dateEdit->setDisplayFormat("yyyy-MM-dd");
 }
 
 totalexpenses::~totalexpenses()
@@ -47,11 +52,27 @@ void totalexpenses::on_soldOutBt_clicked()
 
 
     if (!insertQuery.exec()) {
-        qDebug() << "Error: Unable to execute query -" << insertQuery.lastError().text();
+        qDebug() << "Error: Unable to execute query to database totalExpanses-" << insertQuery.lastError().text();
     } else {
         qDebug() << "Data saved successfully";
-         QMessageBox::information(this, "Success", "Saved Successfully!");
+
     }
+
+    QSqlQuery insertDashboardQuery(database);
+    insertDashboardQuery.prepare("INSERT INTO dashboard (date, puramount, sellamount, expenses) "
+                                 "VALUES (:date, 0, 0, :expenses)");
+
+
+    insertDashboardQuery.bindValue(":date", Date);
+    insertDashboardQuery.bindValue(":expenses", Amount);
+
+    if (!insertDashboardQuery.exec()) {
+        qDebug() << "Insert error:" << insertDashboardQuery.lastError();
+    } else {
+        qDebug() << "Data inserted successfully into dashboard!";
+        QMessageBox::information(this, "Success", "Saved Successfully!");
+    }
+
 
     ui->AmountIN->clear();
     ui->dateEdit->clear();

@@ -18,6 +18,9 @@ public:
     ~detailAleart();
     void populateExpiryLists();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::detailAleart *ui;
 };

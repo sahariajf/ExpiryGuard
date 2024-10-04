@@ -82,6 +82,9 @@
      <height>29</height>
     </rect>
    </property>
+   <property name="calendarPopup">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QLineEdit" name="DiscriptionIn">
    <property name="geometry">

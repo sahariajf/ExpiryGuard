@@ -91,7 +91,7 @@ void MainWindow::on_searchBT_clicked()
         int boxNumber = query.value(1).toInt();
         QString purPrice = query.value(2).toString();
 
-        QString message = QString(" • %1 is found in box number %2 which purchge ammount is %3.")
+        QString message = QString(" • %1 is found in box number %2 which purchage ammount is %3.")
                               .arg(name)
                               .arg(boxNumber)
                               .arg(purPrice);

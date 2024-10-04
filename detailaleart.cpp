@@ -36,7 +36,7 @@ void detailAleart::populateExpiryLists() {
     if (expiringQuery.exec()) {
         while (expiringQuery.next()) {
             QString name = expiringQuery.value(0).toString();
-            int number = expiringQuery.value(1).toInt();  // Assuming BoxNumber is the second column
+            int number = expiringQuery.value(1).toInt();
 
             QString message = QString(" • %1 is in box number %2 and going to expire.")
                                   .arg(name)
@@ -85,3 +85,9 @@ void detailAleart::populateExpiryLists() {
     expiredModel->setStringList(expiredList);
     ui->ExpiredView->setModel(expiredModel);
 }
+
+void detailAleart::on_pushButton_clicked()
+{
+    populateExpiryLists();
+}
+
