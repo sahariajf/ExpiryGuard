@@ -36,6 +36,7 @@ public:
     QPushButton *ExpiryDashBoardBT;
     QPushButton *ExpiredBoxBt;
     QPushButton *ADDBoxBt_2;
+    QPushButton *expensesBT;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -104,6 +105,9 @@ public:
         ADDBoxBt_2 = new QPushButton(centralwidget);
         ADDBoxBt_2->setObjectName("ADDBoxBt_2");
         ADDBoxBt_2->setGeometry(QRect(220, 30, 181, 41));
+        expensesBT = new QPushButton(centralwidget);
+        expensesBT->setObjectName("expensesBT");
+        expensesBT->setGeometry(QRect(20, 270, 141, 41));
         MainWindow->setCentralWidget(centralwidget);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName("statusBar");
@@ -126,6 +130,7 @@ public:
         ExpiryDashBoardBT->setText(QCoreApplication::translate("MainWindow", "Expiry DashBoard", nullptr));
         ExpiredBoxBt->setText(QCoreApplication::translate("MainWindow", "Expired Box", nullptr));
         ADDBoxBt_2->setText(QCoreApplication::translate("MainWindow", "Shop Dashboard", nullptr));
+        expensesBT->setText(QCoreApplication::translate("MainWindow", "Expenses", nullptr));
     } // retranslateUi
 
 };

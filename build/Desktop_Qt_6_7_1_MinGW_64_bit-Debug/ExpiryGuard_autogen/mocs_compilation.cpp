@@ -6,3 +6,4 @@
 #include "EWIEGA46WW/moc_mainwindow.cpp"
 #include "EWIEGA46WW/moc_shopdashboard.cpp"
 #include "EWIEGA46WW/moc_soldout.cpp"
+#include "EWIEGA46WW/moc_totalexpenses.cpp"

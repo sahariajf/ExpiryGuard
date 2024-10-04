@@ -219,6 +219,19 @@
      <string>Shop Dashboard</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="expensesBT">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>270</y>
+      <width>141</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Expenses</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>

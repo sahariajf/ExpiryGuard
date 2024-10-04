@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
     ptrExpiredBox = new expiredBox();
     ptrExpirydashboard = new ExpiryDashboard();
     ptrShopDashboard = new ShopDashboard();
+    ptrTotalExpenses = new totalexpenses();
 
     ui->searchResult->setVisible(false);
     ui->ExpirationAlert->setVisible(false);
@@ -30,6 +31,7 @@ MainWindow::~MainWindow()
     delete ptrExpiredBox;
     delete ptrExpirydashboard;
     delete ptrShopDashboard;
+    delete ptrTotalExpenses;
     delete ui;
 }
 
@@ -234,5 +236,11 @@ void MainWindow::on_ExpiryDashBoardBT_clicked()
 void MainWindow::on_ADDBoxBt_2_clicked()
 {
     ptrShopDashboard->show();
+}
+
+
+void MainWindow::on_expensesBT_clicked()
+{
+    ptrTotalExpenses->show();
 }
 
