@@ -16,6 +16,9 @@ public:
     explicit totalexpenses(QWidget *parent = nullptr);
     ~totalexpenses();
 
+private slots:
+    void on_soldOutBt_clicked();
+
 private:
     Ui::totalexpenses *ui;
 };
