@@ -32,20 +32,92 @@ public:
         expiredBox->setWindowModality(Qt::ApplicationModal);
         expiredBox->resize(382, 320);
         expiredBox->setFocusPolicy(Qt::NoFocus);
+        expiredBox->setStyleSheet(QString::fromUtf8("\n"
+"QWidget {\n"
+"    background-color: #f4f4f4; \n"
+"    color: #333; \n"
+"}\n"
+"\n"
+"\n"
+"QMainWindow {\n"
+"    background-color: #ffffff;\n"
+"}\n"
+"\n"
+"\n"
+"QHeaderView {\n"
+"    background-color: #009688; \n"
+"    color: #ffffff; \n"
+"}\n"
+"\n"
+"\n"
+"QPushButton {\n"
+"    background-color: #009688; \n"
+"    color: #ffffff; \n"
+"    border: none; \n"
+"    border-radius: 10px; \n"
+"    padding: 5px; \n"
+"    font-size: 15px; \n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #00796b; \n"
+"}\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"QLabel {\n"
+"    font-size: 16px; \n"
+"    margin-bottom: 5px; \n"
+"}\n"
+"\n"
+"\n"
+"QListView {\n"
+"    background-color:rgb(193, 201, 255); \n"
+"    border: 1px solid #ccc; \n"
+"    border-radius: 7px;\n"
+"	\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: 1px solid #ccc; \n"
+"    background: #f4f4f4;\n"
+"    width: 12px; \n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical {\n"
+"    background: #009688; \n"
+"    min-height: 20px;\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:vertical, \n"
+""
+                        "QScrollBar::sub-line:vertical {\n"
+"    background: none; \n"
+"}\n"
+"\n"
+"QLineEdit{\n"
+" border: 2px solid #ccc; \n"
+"    border-radius: 3px; \n"
+"    padding: 5px; \n"
+"    font-size: 16px; \n"
+"    color: rgb(165, 0, 0);\n"
+"    background-color: rgb(129, 200, 255);\n"
+"	font-weight : bold;\n"
+"}\n"
+""));
         pushButton = new QPushButton(expiredBox);
         pushButton->setObjectName("pushButton");
         pushButton->setGeometry(QRect(150, 160, 83, 29));
         QFont font;
-        font.setPointSize(10);
         font.setBold(true);
         pushButton->setFont(font);
         label = new QLabel(expiredBox);
         label->setObjectName("label");
         label->setGeometry(QRect(60, 90, 111, 31));
-        QFont font1;
-        font1.setPointSize(11);
-        font1.setBold(true);
-        label->setFont(font1);
+        label->setFont(font);
         ExpiredBoxIn = new QLineEdit(expiredBox);
         ExpiredBoxIn->setObjectName("ExpiredBoxIn");
         ExpiredBoxIn->setGeometry(QRect(180, 90, 111, 31));

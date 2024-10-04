@@ -19,6 +19,83 @@
   <property name="windowTitle">
    <string>Expired Box</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">
+QWidget {
+    background-color: #f4f4f4; 
+    color: #333; 
+}
+
+
+QMainWindow {
+    background-color: #ffffff;
+}
+
+
+QHeaderView {
+    background-color: #009688; 
+    color: #ffffff; 
+}
+
+
+QPushButton {
+    background-color: #009688; 
+    color: #ffffff; 
+    border: none; 
+    border-radius: 10px; 
+    padding: 5px; 
+    font-size: 15px; 
+}
+
+QPushButton:hover {
+    background-color: #00796b; 
+}
+
+
+
+
+
+QLabel {
+    font-size: 16px; 
+    margin-bottom: 5px; 
+}
+
+
+QListView {
+    background-color:rgb(193, 201, 255); 
+    border: 1px solid #ccc; 
+    border-radius: 7px;
+	
+}
+
+
+QScrollBar:vertical {
+    border: 1px solid #ccc; 
+    background: #f4f4f4;
+    width: 12px; 
+}
+
+QScrollBar::handle:vertical {
+    background: #009688; 
+    min-height: 20px;
+}
+
+QScrollBar::add-line:vertical, 
+QScrollBar::sub-line:vertical {
+    background: none; 
+}
+
+QLineEdit{
+ border: 2px solid #ccc; 
+    border-radius: 3px; 
+    padding: 5px; 
+    font-size: 16px; 
+    color: rgb(165, 0, 0);
+    background-color: rgb(129, 200, 255);
+	font-weight : bold;
+}
+</string>
+  </property>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
@@ -30,7 +107,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>10</pointsize>
+     <pointsize>-1</pointsize>
      <bold>true</bold>
     </font>
    </property>
@@ -49,7 +126,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>11</pointsize>
+     <pointsize>-1</pointsize>
      <bold>true</bold>
     </font>
    </property>

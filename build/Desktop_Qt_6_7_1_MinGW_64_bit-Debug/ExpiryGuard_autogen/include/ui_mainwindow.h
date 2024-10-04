@@ -72,8 +72,8 @@ public:
 "    color: #ffffff; \n"
 "    border: none; \n"
 "    border-radius: 10px; \n"
-"    padding: 5px; \n"
-"    font-size: 15px; \n"
+"    padding: 6px; \n"
+"    font-size: 14px; \n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
@@ -122,7 +122,8 @@ public:
         ADDBoxBt->setObjectName("ADDBoxBt");
         ADDBoxBt->setGeometry(QRect(20, 30, 141, 41));
         QFont font;
-        font.setBold(true);
+        font.setFamilies({QString::fromUtf8("Lima Bosonto Unicode")});
+        font.setBold(false);
         ADDBoxBt->setFont(font);
         SoldOutBt = new QPushButton(centralwidget);
         SoldOutBt->setObjectName("SoldOutBt");
@@ -131,14 +132,16 @@ public:
         searchBT = new QPushButton(centralwidget);
         searchBT->setObjectName("searchBT");
         searchBT->setGeometry(QRect(810, 40, 101, 31));
-        searchBT->setFont(font);
+        QFont font1;
+        font1.setBold(true);
+        searchBT->setFont(font1);
         searchBT->setCheckable(false);
         searchtext = new QLineEdit(centralwidget);
         searchtext->setObjectName("searchtext");
         searchtext->setGeometry(QRect(600, 30, 201, 41));
-        QFont font1;
-        font1.setPointSize(9);
-        searchtext->setFont(font1);
+        QFont font2;
+        font2.setPointSize(9);
+        searchtext->setFont(font2);
         searchtext->setEchoMode(QLineEdit::Normal);
         searchtext->setReadOnly(false);
         searchtext->setClearButtonEnabled(true);
@@ -146,10 +149,10 @@ public:
         searchResult->setObjectName("searchResult");
         searchResult->setEnabled(true);
         searchResult->setGeometry(QRect(600, 80, 321, 121));
-        QFont font2;
-        font2.setFamilies({QString::fromUtf8("Lima Bosonto Unicode")});
-        font2.setPointSize(11);
-        searchResult->setFont(font2);
+        QFont font3;
+        font3.setFamilies({QString::fromUtf8("Lima Bosonto Unicode")});
+        font3.setPointSize(11);
+        searchResult->setFont(font3);
         searchResult->setMouseTracking(true);
         searchResult->setFocusPolicy(Qt::NoFocus);
         searchResult->setLayoutDirection(Qt::LeftToRight);
@@ -166,7 +169,7 @@ public:
         ExpirationAlert->setObjectName("ExpirationAlert");
         ExpirationAlert->setEnabled(true);
         ExpirationAlert->setGeometry(QRect(690, 470, 241, 81));
-        ExpirationAlert->setFont(font);
+        ExpirationAlert->setFont(font1);
         ExpirationAlert->setStyleSheet(QString::fromUtf8("QLineEdit, QTextEdit {\n"
 "    border: 3px solid #ccc; \n"
 "    border-radius: 10px; \n"
@@ -177,11 +180,11 @@ public:
         refreshBt = new QPushButton(centralwidget);
         refreshBt->setObjectName("refreshBt");
         refreshBt->setGeometry(QRect(810, 570, 91, 31));
-        refreshBt->setFont(font);
+        refreshBt->setFont(font1);
         DetailsBt = new QPushButton(centralwidget);
         DetailsBt->setObjectName("DetailsBt");
         DetailsBt->setGeometry(QRect(700, 570, 91, 31));
-        DetailsBt->setFont(font);
+        DetailsBt->setFont(font1);
         ExpiryDashBoardBT = new QPushButton(centralwidget);
         ExpiryDashBoardBT->setObjectName("ExpiryDashBoardBT");
         ExpiryDashBoardBT->setGeometry(QRect(20, 150, 141, 41));
@@ -193,10 +196,7 @@ public:
         ADDBoxBt_2 = new QPushButton(centralwidget);
         ADDBoxBt_2->setObjectName("ADDBoxBt_2");
         ADDBoxBt_2->setGeometry(QRect(320, 30, 181, 41));
-        QFont font3;
-        font3.setFamilies({QString::fromUtf8("Lima Bosonto Unicode")});
-        font3.setBold(false);
-        ADDBoxBt_2->setFont(font3);
+        ADDBoxBt_2->setFont(font);
         expensesBT = new QPushButton(centralwidget);
         expensesBT->setObjectName("expensesBT");
         expensesBT->setGeometry(QRect(20, 270, 141, 41));

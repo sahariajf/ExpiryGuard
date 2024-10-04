@@ -40,8 +40,8 @@ QPushButton {
     color: #ffffff; 
     border: none; 
     border-radius: 10px; 
-    padding: 5px; 
-    font-size: 15px; 
+    padding: 6px; 
+    font-size: 14px; 
 }
 
 QPushButton:hover {
@@ -96,8 +96,9 @@ QScrollBar::sub-line:vertical {
     </property>
     <property name="font">
      <font>
+      <family>Lima Bosonto Unicode</family>
       <pointsize>-1</pointsize>
-      <bold>true</bold>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -115,8 +116,9 @@ QScrollBar::sub-line:vertical {
     </property>
     <property name="font">
      <font>
+      <family>Lima Bosonto Unicode</family>
       <pointsize>-1</pointsize>
-      <bold>true</bold>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -304,8 +306,9 @@ QScrollBar::sub-line:vertical {
     </property>
     <property name="font">
      <font>
+      <family>Lima Bosonto Unicode</family>
       <pointsize>-1</pointsize>
-      <bold>true</bold>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -323,8 +326,9 @@ QScrollBar::sub-line:vertical {
     </property>
     <property name="font">
      <font>
+      <family>Lima Bosonto Unicode</family>
       <pointsize>-1</pointsize>
-      <bold>true</bold>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -362,8 +366,9 @@ QScrollBar::sub-line:vertical {
     </property>
     <property name="font">
      <font>
+      <family>Lima Bosonto Unicode</family>
       <pointsize>-1</pointsize>
-      <bold>true</bold>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -383,7 +388,7 @@ QScrollBar::sub-line:vertical {
      <string notr="true">image: url(:/main1/Picture2.png);</string>
     </property>
     <property name="text">
-     <string> </string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -399,7 +404,7 @@ QScrollBar::sub-line:vertical {
      <string notr="true">image: url(:/main1/footer.png);</string>
     </property>
     <property name="text">
-     <string> </string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -415,7 +420,7 @@ QScrollBar::sub-line:vertical {
      <string notr="true">image: url(:/main1/mid.png);</string>
     </property>
     <property name="text">
-     <string> </string>
+     <string/>
     </property>
    </widget>
    <zorder>label</zorder>

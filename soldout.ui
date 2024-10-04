@@ -23,11 +23,13 @@ QWidget {
 }
 
 QDateEdit {
-    border: 2px solid #27ae60;
-    border-radius: 5px;
-    padding: 5px;
-    background-color: rgb(130, 255, 228);
-    color: #333;
+     border: 2px solid #ccc; 
+    border-radius: 3px; 
+    padding: 5px; 
+    font-size: 14px; 
+    color: rgb(165, 0, 0);
+    background-color: rgb(129, 200, 255);
+font-weight : bold;
 }
 
 QPushButton:hover {
@@ -35,11 +37,13 @@ QPushButton:hover {
 }
 
 QLineEdit {
-    border: 2px solid #27ae60;
-    border-radius: 5px;
-    padding: 5px;
-    background-color: rgb(130, 255, 228);
-    color: rgb(0, 0, 0);
+    border: 2px solid #ccc; 
+    border-radius: 3px; 
+    padding: 5px; 
+    font-size: 14px; 
+    color: rgb(165, 0, 0);
+    background-color: rgb(129, 200, 255);
+font-weight : bold;
 }
 
 QLabel {
@@ -116,7 +120,8 @@ QLabel {
    </property>
    <property name="font">
     <font>
-     <pointsize>10</pointsize>
+     <pointsize>-1</pointsize>
+     <bold>true</bold>
     </font>
    </property>
   </widget>
@@ -131,7 +136,8 @@ QLabel {
    </property>
    <property name="font">
     <font>
-     <pointsize>10</pointsize>
+     <pointsize>-1</pointsize>
+     <bold>true</bold>
     </font>
    </property>
   </widget>
@@ -146,7 +152,8 @@ QLabel {
    </property>
    <property name="font">
     <font>
-     <pointsize>10</pointsize>
+     <pointsize>-1</pointsize>
+     <bold>true</bold>
     </font>
    </property>
    <property name="displayFormat">

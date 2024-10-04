@@ -16,6 +16,69 @@
   <property name="windowTitle">
    <string>Detail Aleart</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+    background-color: #f4f4f4; 
+    color: #333; 
+}
+
+
+QMainWindow {
+    background-color: #ffffff;
+}
+
+
+QHeaderView {
+    background-color: #009688; 
+    color: #ffffff; 
+}
+
+
+QPushButton {
+    background-color: #009688; 
+    color: #ffffff; 
+    border: none; 
+    border-radius: 10px; 
+    padding: 5px; 
+    font-size: 15px; 
+}
+
+QPushButton:hover {
+    background-color: #00796b; 
+}
+
+QLabel{
+ 	color:rgb(0, 104, 94);
+	font-size:25px;
+}
+
+QListView {
+    background-color:rgb(193, 201, 255); 
+    border: 1px solid #ccc; 
+    border-radius: 7px;	
+ font-size: 16px;                /* Font size */
+    color: #333333; 
+}
+
+
+QScrollBar:vertical {
+    border: 1px solid #ccc; 
+    background: #f4f4f4;
+    width: 12px; 
+}
+
+QScrollBar::handle:vertical {
+    background: #009688; 
+    min-height: 20px;
+}
+
+QScrollBar::add-line:vertical, 
+QScrollBar::sub-line:vertical {
+    background: none; 
+}
+
+</string>
+  </property>
   <widget class="QListView" name="ExpiredView">
    <property name="geometry">
     <rect>
@@ -24,6 +87,12 @@
      <width>421</width>
      <height>141</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>-1</pointsize>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">QListView {
@@ -42,6 +111,12 @@
      <width>421</width>
      <height>141</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>-1</pointsize>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">QListView {
@@ -69,7 +144,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>16</pointsize>
+     <pointsize>-1</pointsize>
      <bold>true</bold>
     </font>
    </property>
@@ -88,7 +163,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>16</pointsize>
+     <pointsize>-1</pointsize>
      <bold>true</bold>
     </font>
    </property>
@@ -99,11 +174,17 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>180</x>
      <y>440</y>
      <width>83</width>
      <height>29</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>-1</pointsize>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="text">
     <string>Refresh</string>

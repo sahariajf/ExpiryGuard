@@ -47,11 +47,13 @@ public:
 "}\n"
 "\n"
 "QDateEdit {\n"
-"    border: 2px solid #27ae60;\n"
-"    border-radius: 5px;\n"
-"    padding: 5px;\n"
-"    background-color: rgb(130, 255, 228);\n"
-"    color: #333;\n"
+"     border: 2px solid #ccc; \n"
+"    border-radius: 3px; \n"
+"    padding: 5px; \n"
+"    font-size: 14px; \n"
+"    color: rgb(165, 0, 0);\n"
+"    background-color: rgb(129, 200, 255);\n"
+"font-weight : bold;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
@@ -59,11 +61,13 @@ public:
 "}\n"
 "\n"
 "QLineEdit {\n"
-"    border: 2px solid #27ae60;\n"
-"    border-radius: 5px;\n"
-"    padding: 5px;\n"
-"    background-color: rgb(130, 255, 228);\n"
-"    color: rgb(0, 0, 0);\n"
+"    border: 2px solid #ccc; \n"
+"    border-radius: 3px; \n"
+"    padding: 5px; \n"
+"    font-size: 14px; \n"
+"    color: rgb(165, 0, 0);\n"
+"    background-color: rgb(129, 200, 255);\n"
+"font-weight : bold;\n"
 "}\n"
 "\n"
 "QLabel {\n"
@@ -88,26 +92,24 @@ public:
         boxNumberIn = new QLineEdit(soldout);
         boxNumberIn->setObjectName("boxNumberIn");
         boxNumberIn->setGeometry(QRect(240, 60, 161, 26));
-        QFont font1;
-        font1.setPointSize(10);
-        boxNumberIn->setFont(font1);
+        boxNumberIn->setFont(font);
         sellAmountIn = new QLineEdit(soldout);
         sellAmountIn->setObjectName("sellAmountIn");
         sellAmountIn->setGeometry(QRect(240, 140, 161, 26));
-        sellAmountIn->setFont(font1);
+        sellAmountIn->setFont(font);
         sellDateIn = new QDateEdit(soldout);
         sellDateIn->setObjectName("sellDateIn");
         sellDateIn->setGeometry(QRect(240, 100, 161, 26));
-        sellDateIn->setFont(font1);
+        sellDateIn->setFont(font);
         sellDateIn->setCalendarPopup(true);
         sellDateIn->setDate(QDate(2024, 10, 10));
         soldOutBt = new QPushButton(soldout);
         soldOutBt->setObjectName("soldOutBt");
         soldOutBt->setGeometry(QRect(130, 210, 101, 31));
-        QFont font2;
-        font2.setPointSize(12);
-        font2.setBold(true);
-        soldOutBt->setFont(font2);
+        QFont font1;
+        font1.setPointSize(12);
+        font1.setBold(true);
+        soldOutBt->setFont(font1);
         soldOutBt->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
 "border:none;\n"
@@ -123,7 +125,7 @@ public:
         ResetBt = new QPushButton(soldout);
         ResetBt->setObjectName("ResetBt");
         ResetBt->setGeometry(QRect(270, 210, 81, 31));
-        ResetBt->setFont(font2);
+        ResetBt->setFont(font1);
         ResetBt->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
 "border:none;\n"
@@ -138,9 +140,9 @@ public:
         showResult = new QTextEdit(soldout);
         showResult->setObjectName("showResult");
         showResult->setGeometry(QRect(90, 310, 301, 101));
-        QFont font3;
-        font3.setFamilies({QString::fromUtf8("Lima Bosonto Unicode")});
-        showResult->setFont(font3);
+        QFont font2;
+        font2.setFamilies({QString::fromUtf8("Lima Bosonto Unicode")});
+        showResult->setFont(font2);
         showResult->setStyleSheet(QString::fromUtf8("QTextEdit {\n"
 "    border: 4px solid #ccc; \n"
 "    border-radius: 10px; \n"
