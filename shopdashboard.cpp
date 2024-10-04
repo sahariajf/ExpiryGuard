@@ -46,7 +46,7 @@ void ShopDashboard::ComboBoxWithFormattedDates()
                           : (minPurDate.isValid() ? minPurDate : minSellDate);
 
     if (!startDate.isValid()) {
-        QMessageBox::warning(this, "Error", "No valid dates found.");
+        // QMessageBox::warning(this, "Error", "No valid dates found.");
         return;
     }
 
@@ -76,16 +76,16 @@ void ShopDashboard::on_selectMonth_currentIndexChanged(int index)
     QString selectedMonthYear = ui->selectMonth->currentText();
     QStringList parts = selectedMonthYear.split(" - ");
 
-    if (parts.size() != 2) return; // Ensure we have both month and year
-
     QString monthStr = parts[0];
     QString yearStr = parts[1];
 
-    QDate date = QDate::fromString("01 " + monthStr + " " + yearStr, "dd MMMM yyyy");
-    if (!date.isValid()) return; // Check if date is valid
+    qDebug() << selectedMonthYear;
 
-    int monthNumber = date.month(); // Get the month number
-    int yearNumber = date.year();    // Get the year
+    QDate date = QDate::fromString("01 " + monthStr + " " + yearStr, "dd MMMM yyyy");
+    if (!date.isValid()) return;
+
+    int monthNumber = date.month();
+    int yearNumber = date.year();
 
     double totalPurAmount = 0.0;
     double totalSellAmount = 0.0;
@@ -101,37 +101,38 @@ void ShopDashboard::on_selectMonth_currentIndexChanged(int index)
         return;
     }
 
-    // Query total purchase amount for the selected month and year
+
+    QString datePrefix = QString("%1-%2").arg(yearNumber).arg(QString::number(monthNumber).rightJustified(2, '0'));
+
+
     QSqlQuery purQuery;
-    purQuery.prepare("SELECT SUM(PurAmount) FROM addbox WHERE strftime('%Y', Purdate) = :year AND strftime('%m', Purdate) = :month");
-    purQuery.bindValue(":year", QString::number(yearNumber));
-    purQuery.bindValue(":month", QString::number(monthNumber).rightJustified(2, '0'));
+    purQuery.prepare("SELECT COALESCE(SUM(purAmount + expenses), 0) FROM dashboard WHERE Date LIKE :datePrefix || '%'");
+    purQuery.bindValue(":datePrefix", datePrefix);
     purQuery.exec();
 
     if (purQuery.next()) {
         totalPurAmount = purQuery.value(0).toDouble();
     }
 
-    // Query total sell amount for the selected month and year
+
     QSqlQuery sellQuery;
-    sellQuery.prepare("SELECT SUM(SellAmount) FROM soldout WHERE strftime('%Y', selldate) = :year AND strftime('%m', selldate) = :month");
-    sellQuery.bindValue(":year", QString::number(yearNumber));
-    sellQuery.bindValue(":month", QString::number(monthNumber).rightJustified(2, '0'));
+    sellQuery.prepare("SELECT COALESCE(SUM(sellAmount), 0) FROM dashboard WHERE Date LIKE :datePrefix || '%'");
+    sellQuery.bindValue(":datePrefix", datePrefix);
     sellQuery.exec();
 
     if (sellQuery.next()) {
         totalSellAmount = sellQuery.value(0).toDouble();
     }
 
-    database.close(); // Close the database connection
+    database.close();
 
-    // Calculate total profit
+
     double totalProfit = totalSellAmount - totalPurAmount;
 
 
     if(totalProfit > 0)
     {
-        QString message = QString("Total buying amount: %1, Total selling amount: %2, and profit of this month is: %3")
+        QString message = QString(" Great ! Your Total cost (medicine + expenses ) amount: %1, Total sell amount: %2, and profit of this month is: %3")
                               .arg(QString::number(totalPurAmount, 'f', 2))
                               .arg(QString::number(totalSellAmount, 'f', 2))
                               .arg(QString::number(totalProfit, 'f', 2));
@@ -140,13 +141,13 @@ void ShopDashboard::on_selectMonth_currentIndexChanged(int index)
 
 
     else {
-    QString message = QString("Total buying amount: %1, Total selling amount: %2, and loss of this month is: %3")
+    QString message = QString("Oh no! Your Total cost (medicine + expenses ) amount: %1, Total sell amount: %2, and loss of this month is: %3")
                           .arg(QString::number(totalPurAmount, 'f', 2))
                           .arg(QString::number(totalSellAmount, 'f', 2))
                           .arg(QString::number(totalProfit, 'f', 2));
         ui->monthDetails->setText(message);
     }
-    // Display the message in the QLineEdit
+
 
 }
 
