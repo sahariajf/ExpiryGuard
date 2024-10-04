@@ -16,8 +16,8 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QListView>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QTextEdit>
 
 QT_BEGIN_NAMESPACE
 
@@ -32,7 +32,8 @@ public:
     QDateEdit *sellDateIn;
     QPushButton *soldOutBt;
     QPushButton *ResetBt;
-    QListView *showdetails;
+    QTextEdit *showResult;
+    QLabel *label_4;
 
     void setupUi(QDialog *soldout)
     {
@@ -40,40 +41,69 @@ public:
             soldout->setObjectName("soldout");
         soldout->setWindowModality(Qt::ApplicationModal);
         soldout->resize(465, 534);
+        soldout->setStyleSheet(QString::fromUtf8("\n"
+"QWidget {\n"
+"    background-color: rgb(130, 163, 255);  \n"
+"}\n"
+"\n"
+"QDateEdit {\n"
+"    border: 2px solid #27ae60;\n"
+"    border-radius: 5px;\n"
+"    padding: 5px;\n"
+"    background-color: rgb(130, 255, 228);\n"
+"    color: #333;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #c0392b; \n"
+"}\n"
+"\n"
+"QLineEdit {\n"
+"    border: 2px solid #27ae60;\n"
+"    border-radius: 5px;\n"
+"    padding: 5px;\n"
+"    background-color: rgb(130, 255, 228);\n"
+"    color: rgb(0, 0, 0);\n"
+"}\n"
+"\n"
+"QLabel {\n"
+"  color:rgb(0, 0, 0);\n"
+" font-size: 18px;\n"
+"	\n"
+"}"));
         label = new QLabel(soldout);
         label->setObjectName("label");
-        label->setGeometry(QRect(60, 60, 141, 20));
+        label->setGeometry(QRect(100, 60, 141, 20));
         QFont font;
-        font.setPointSize(10);
         font.setBold(true);
         label->setFont(font);
         label_2 = new QLabel(soldout);
         label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(60, 100, 131, 20));
+        label_2->setGeometry(QRect(100, 100, 131, 20));
         label_2->setFont(font);
         label_3 = new QLabel(soldout);
         label_3->setObjectName("label_3");
-        label_3->setGeometry(QRect(40, 140, 141, 20));
+        label_3->setGeometry(QRect(80, 140, 141, 20));
         label_3->setFont(font);
         boxNumberIn = new QLineEdit(soldout);
         boxNumberIn->setObjectName("boxNumberIn");
-        boxNumberIn->setGeometry(QRect(200, 60, 161, 26));
+        boxNumberIn->setGeometry(QRect(240, 60, 161, 26));
         QFont font1;
         font1.setPointSize(10);
         boxNumberIn->setFont(font1);
         sellAmountIn = new QLineEdit(soldout);
         sellAmountIn->setObjectName("sellAmountIn");
-        sellAmountIn->setGeometry(QRect(200, 140, 161, 26));
+        sellAmountIn->setGeometry(QRect(240, 140, 161, 26));
         sellAmountIn->setFont(font1);
         sellDateIn = new QDateEdit(soldout);
         sellDateIn->setObjectName("sellDateIn");
-        sellDateIn->setGeometry(QRect(200, 100, 161, 26));
+        sellDateIn->setGeometry(QRect(240, 100, 161, 26));
         sellDateIn->setFont(font1);
         sellDateIn->setCalendarPopup(true);
         sellDateIn->setDate(QDate(2024, 10, 10));
         soldOutBt = new QPushButton(soldout);
         soldOutBt->setObjectName("soldOutBt");
-        soldOutBt->setGeometry(QRect(100, 210, 101, 31));
+        soldOutBt->setGeometry(QRect(130, 210, 101, 31));
         QFont font2;
         font2.setPointSize(12);
         font2.setBold(true);
@@ -83,30 +113,56 @@ public:
 "border:none;\n"
 "color:white;\n"
 "background-color:rgb(0, 108, 0);\n"
-"border-radius:50px;\n"
+"border-radius: 7px;\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(0, 34, 0); \n"
 "}"));
         ResetBt = new QPushButton(soldout);
         ResetBt->setObjectName("ResetBt");
-        ResetBt->setGeometry(QRect(240, 210, 81, 31));
+        ResetBt->setGeometry(QRect(270, 210, 81, 31));
         ResetBt->setFont(font2);
         ResetBt->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
 "border:none;\n"
 "color:white;\n"
 "background-color:red;\n"
-"border-radius:30px;\n"
+"border-radius: 7px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(85, 0, 0); \n"
 "}"));
-        showdetails = new QListView(soldout);
-        showdetails->setObjectName("showdetails");
-        showdetails->setGeometry(QRect(60, 300, 351, 171));
+        showResult = new QTextEdit(soldout);
+        showResult->setObjectName("showResult");
+        showResult->setGeometry(QRect(90, 310, 301, 101));
         QFont font3;
-        font3.setFamilies({QString::fromUtf8("Lucida Sans")});
-        font3.setPointSize(12);
-        showdetails->setFont(font3);
-        showdetails->setAutoFillBackground(true);
-        showdetails->setProperty("isWrapping", QVariant(true));
-        showdetails->setWordWrap(true);
-        showdetails->setItemAlignment(Qt::AlignCenter);
+        font3.setFamilies({QString::fromUtf8("Lima Bosonto Unicode")});
+        showResult->setFont(font3);
+        showResult->setStyleSheet(QString::fromUtf8("QTextEdit {\n"
+"    border: 4px solid #ccc; \n"
+"    border-radius: 10px; \n"
+"    padding: 5px; \n"
+"    font-size: 14px; \n"
+"    color: rgb(165, 0, 0);\n"
+"    background-color: rgb(129, 200, 255);\n"
+"}"));
+        label_4 = new QLabel(soldout);
+        label_4->setObjectName("label_4");
+        label_4->setGeometry(QRect(130, 270, 331, 261));
+        label_4->setStyleSheet(QString::fromUtf8("image: url(:/main1/Picture3.png);"));
+        label_4->raise();
+        label->raise();
+        label_2->raise();
+        label_3->raise();
+        boxNumberIn->raise();
+        sellAmountIn->raise();
+        sellDateIn->raise();
+        soldOutBt->raise();
+        ResetBt->raise();
+        showResult->raise();
 
         retranslateUi(soldout);
 
@@ -122,6 +178,7 @@ public:
         sellDateIn->setDisplayFormat(QCoreApplication::translate("soldout", "yyyy-MM-dd", nullptr));
         soldOutBt->setText(QCoreApplication::translate("soldout", "Sold Out", nullptr));
         ResetBt->setText(QCoreApplication::translate("soldout", "Reset", nullptr));
+        label_4->setText(QString());
     } // retranslateUi
 
 };

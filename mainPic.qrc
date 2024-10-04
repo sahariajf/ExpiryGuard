@@ -5,6 +5,9 @@
         <file>Picture2.png</file>
         <file>footer.png</file>
         <file>mid.png</file>
+        <file>pngwing.com (1).png</file>
+        <file>Picture3.png</file>
+        <file>try.png</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

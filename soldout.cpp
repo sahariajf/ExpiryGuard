@@ -11,6 +11,8 @@ soldout::soldout(QWidget *parent)
 
     dateEdit->setDate(todayDate);
     dateEdit->setDisplayFormat("yyyy-MM-dd");
+    ui->showResult->setVisible(false);
+    ui->showResult->setAlignment(Qt::AlignCenter);
 
 }
 
@@ -21,7 +23,7 @@ soldout::~soldout()
 
 void soldout::on_soldOutBt_clicked()
 {
-
+    ui->showResult->setVisible(true);
     QString boxNumber = ui->boxNumberIn->text();
     QString sellDate = ui->sellDateIn->text();
     QString sellAmount = ui->sellAmountIn->text();
@@ -80,11 +82,9 @@ void soldout::on_soldOutBt_clicked()
     }
 
 
-    QStringListModel *model = new QStringListModel();
-    QStringList list;
-    list << message;
-    model->setStringList(list);
-    ui->showdetails->setModel(model);
+    ui->showResult->setText(message);
+
+
 
 
     QSqlQuery insertQuery(database);
@@ -146,5 +146,6 @@ void soldout::on_ResetBt_clicked()
     ui->boxNumberIn->clear();
     ui->sellDateIn->clear();
     ui->sellAmountIn->clear();
+    ui->showResult->clear();
 }
 
