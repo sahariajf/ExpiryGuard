@@ -31,6 +31,8 @@ QDateEdit {
     padding: 5px;
     background-color: rgb(130, 255, 228);
     color: #333;
+	font-weight:bold;
+font-size:14px;
 }
 
 QPushButton:hover {
@@ -43,6 +45,8 @@ QLineEdit {
     padding: 5px;
     background-color: rgb(130, 255, 228);
     color: rgb(0, 0, 0);
+	font-weight:bold;
+font-size:14px;
 }
 
 QLabel {
@@ -234,7 +238,7 @@ QPushButton:hover {
      <second>0</second>
      <year>2024</year>
      <month>9</month>
-     <day>11</day>
+     <day>10</day>
     </datetime>
    </property>
    <property name="displayFormat">
@@ -269,7 +273,7 @@ QPushButton:hover {
      <second>0</second>
      <year>2024</year>
      <month>9</month>
-     <day>10</day>
+     <day>9</day>
     </datetime>
    </property>
    <property name="displayFormat">
@@ -321,7 +325,7 @@ QPushButton:hover {
     <string notr="true">image: url(:/main1/pngwing.com (1).png);</string>
    </property>
    <property name="text">
-    <string> </string>
+    <string/>
    </property>
   </widget>
   <zorder>label_6</zorder>

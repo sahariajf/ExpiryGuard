@@ -54,6 +54,8 @@ public:
 "    padding: 5px;\n"
 "    background-color: rgb(130, 255, 228);\n"
 "    color: #333;\n"
+"	font-weight:bold;\n"
+"font-size:14px;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
@@ -66,6 +68,8 @@ public:
 "    padding: 5px;\n"
 "    background-color: rgb(130, 255, 228);\n"
 "    color: rgb(0, 0, 0);\n"
+"	font-weight:bold;\n"
+"font-size:14px;\n"
 "}\n"
 "\n"
 "QLabel {\n"
@@ -136,7 +140,7 @@ public:
         PurDatein->setGeometry(QRect(250, 170, 161, 26));
         PurDatein->setFrame(true);
         PurDatein->setKeyboardTracking(true);
-        PurDatein->setMinimumDateTime(QDateTime(QDate(2024, 9, 11), QTime(0, 0, 0)));
+        PurDatein->setMinimumDateTime(QDateTime(QDate(2024, 9, 10), QTime(0, 0, 0)));
         PurDatein->setCalendarPopup(true);
         PurDatein->setCurrentSectionIndex(0);
         ExpiryDatein = new QDateEdit(addbox);
@@ -144,7 +148,7 @@ public:
         ExpiryDatein->setEnabled(true);
         ExpiryDatein->setGeometry(QRect(250, 210, 161, 26));
         ExpiryDatein->setFrame(true);
-        ExpiryDatein->setMinimumDateTime(QDateTime(QDate(2024, 9, 10), QTime(0, 0, 0)));
+        ExpiryDatein->setMinimumDateTime(QDateTime(QDate(2024, 9, 9), QTime(0, 0, 0)));
         ExpiryDatein->setCalendarPopup(true);
         label_5 = new QLabel(addbox);
         label_5->setObjectName("label_5");
