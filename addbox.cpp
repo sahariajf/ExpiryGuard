@@ -31,7 +31,10 @@ void addbox::on_SaveBt_clicked()
     QString expiryDate = ui->ExpiryDatein->text();
     QString purAmount = ui->purAmountin->text();
 
-
+    if (boxNumber.isEmpty()) {
+        QMessageBox::warning(this, "Box Number", "Box number can't be empty.");
+        return;
+    }
 
     // Set up the database connection
     QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE");
@@ -63,7 +66,7 @@ void addbox::on_SaveBt_clicked()
     }
 
     if (expiryDateObj <= purchaseDate) {
-        QMessageBox::warning(this, "Date Error", "Expiry date must be greater than purchase date.");
+        QMessageBox::warning(this, "OH NO ! ", "Expiry date must be greater than purchase date.");
         database.close();
         return;
     }
@@ -81,9 +84,8 @@ void addbox::on_SaveBt_clicked()
 
     checkQuery.next();
     int count = checkQuery.value(0).toInt();
-
+    // Show a notification that the box number already exists
     if (count > 0) {
-        // Show a notification that the box number already exists
         QMessageBox::warning(this, "Duplicate Entry", "This box number already exists.");
         database.close();
         return;
